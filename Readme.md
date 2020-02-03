@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Kirill Cherepanov](https://up.htmlacademy.ru/react/3/user/691731).
-* Наставник: `Неизвестно`.
+* Наставник: `Захар Овчаров`.
 
 ---
 
