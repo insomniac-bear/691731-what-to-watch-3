@@ -1,29 +1,45 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-const SmallMovieCard = (props) => {
-  const {filmName, onSmallMovieCardTitleClick} = props;
+class SmallMovieCard extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.onHover = this.onHover.bind(this);
+  }
 
-  return <React.Fragment>
-    <article className="small-movie-card catalog__movies-card">
-      <div className="small-movie-card__image">
-        <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-      </div>
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link"
-          href="movie-page.html"
-          onClick={onSmallMovieCardTitleClick}
-        >
-          {filmName}
-        </a>
-      </h3>
-    </article>
-  </React.Fragment>;
-};
+  onHover() {
+    const {filmData, onHoverHandler} = this.props;
+    onHoverHandler(filmData);
+  }
+
+  render() {
+    const {filmData} = this.props;
+
+    return (
+      <article
+        className="small-movie-card catalog__movies-card"
+        onMouseEnter={this.onHover}
+      >
+        <div className="small-movie-card__image">
+          <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />
+        </div>
+        <h3 className="small-movie-card__title">
+          <a className="small-movie-card__link" href="movie-page.html">
+            {filmData.filmName}
+          </a>
+        </h3>
+      </article>
+    );
+  }
+}
 
 SmallMovieCard.propTypes = {
-  filmName: PropTypes.string.isRequired,
-  onSmallMovieCardTitleClick: PropTypes.func.isRequired,
+  filmData: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    filmName: PropTypes.string.isRequired,
+    posterUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  onHoverHandler: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

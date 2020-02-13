@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 
 import Main from '../main/main.jsx';
 
-const SmallMovieCardTitleHandler = () => {};
-
 const App = (props) => {
-  const {promoFilmData, filmsName} = props;
+  const {promoFilmData, films} = props;
   return (
     <Main
       promoFilmData={promoFilmData}
-      filmsName={filmsName}
-      onSmallMovieCardTitleClick={SmallMovieCardTitleHandler}
+      films={films}
     />
   );
 };
@@ -22,7 +19,11 @@ App.propTypes = {
     genere: PropTypes.string.isRequired,
     releaseDate: PropTypes.number.isRequired,
   }).isRequired,
-  filmsName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.isRequired,
+    filmName: PropTypes.string,
+    posterUrl: PropTypes.string,
+  })).isRequired,
 };
 
 export default App;
