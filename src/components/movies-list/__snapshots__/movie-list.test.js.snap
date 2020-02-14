@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render MovieList 1`] = `
+<div
+  className="catalog__movies-list"
+>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Name-0"
+        height="175"
+        src="img/bohemian-rhapsody.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Name-0
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Name-1"
+        height="175"
+        src="img/bohemian-rhapsody.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Name-1
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Name-2"
+        height="175"
+        src="img/bohemian-rhapsody.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Name-2
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Name-3"
+        height="175"
+        src="img/bohemian-rhapsody.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Name-3
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+  >
+    <div
+      className="small-movie-card__image"
+    >
+      <img
+        alt="Name-4"
+        height="175"
+        src="img/bohemian-rhapsody.jpg"
+        width="280"
+      />
+    </div>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Name-4
+      </a>
+    </h3>
+  </article>
+</div>
+`;

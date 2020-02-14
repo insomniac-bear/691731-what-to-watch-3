@@ -8,22 +8,39 @@ const promoFilmData = {
   releaseDate: 1995,
 };
 
-const filmsName = [
-  `film-1`,
-  `film-2`,
-  `film-3`,
-  `film-4`,
-  `film-5`,
-  `film-6`,
-  `film-7`,
-  `film-8`
+const films = [
+  {
+    id: 0,
+    filmName: `Name-0`,
+    posterUrl: `img/bohemian-rhapsody.jpg`
+  },
+  {
+    id: 1,
+    filmName: `Name-1`,
+    posterUrl: `img/bohemian-rhapsody.jpg`
+  },
+  {
+    id: 2,
+    filmName: `Name-2`,
+    posterUrl: `img/bohemian-rhapsody.jpg`
+  },
+  {
+    id: 3,
+    filmName: `Name-3`,
+    posterUrl: `img/bohemian-rhapsody.jpg`
+  },
+  {
+    id: 4,
+    filmName: `Name-4`,
+    posterUrl: `img/bohemian-rhapsody.jpg`
+  },
 ];
 
 it(`Render Main`, () => {
   const tree = renderer
     .create(<Main
       promoFilmData={promoFilmData}
-      filmsName={filmsName}
+      films={films}
       onSmallMovieCardTitleClick={() => {}}
     />)
     .toJSON();

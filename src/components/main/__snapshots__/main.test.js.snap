@@ -259,14 +259,15 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Name-0"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -276,22 +277,22 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-              onClick={[Function]}
             >
-              film-1
+              Name-0
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Name-1"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -301,22 +302,22 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-              onClick={[Function]}
             >
-              film-2
+              Name-1
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Name-2"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -326,22 +327,22 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-              onClick={[Function]}
             >
-              film-3
+              Name-2
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Name-3"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -351,22 +352,22 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-              onClick={[Function]}
             >
-              film-4
+              Name-3
             </a>
           </h3>
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
             <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
+              alt="Name-4"
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              src="img/bohemian-rhapsody.jpg"
               width="280"
             />
           </div>
@@ -376,84 +377,8 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
-              onClick={[Function]}
             >
-              film-5
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              film-6
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              film-7
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              film-8
+              Name-4
             </a>
           </h3>
         </article>

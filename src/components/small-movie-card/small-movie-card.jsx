@@ -4,21 +4,15 @@ import PropTypes from 'prop-types';
 class SmallMovieCard extends PureComponent {
   constructor(props) {
     super(props);
-    this.onHover = this.onHover.bind(this);
-  }
-
-  onHover() {
-    const {filmData, onHoverHandler} = this.props;
-    onHoverHandler(filmData);
   }
 
   render() {
-    const {filmData} = this.props;
+    const {filmData, onHoverHandler} = this.props;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseEnter={this.onHover}
+        onMouseEnter={() => onHoverHandler(filmData)}
       >
         <div className="small-movie-card__image">
           <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />
