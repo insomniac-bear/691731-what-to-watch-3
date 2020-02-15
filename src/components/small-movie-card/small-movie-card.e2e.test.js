@@ -10,20 +10,31 @@ Enzyme.configure(
     }
 );
 
+const mockData = {
+  id: 0,
+  filmName: `Name`,
+  posterUrl: `img/bohemian-rhapsody.jpg`
+};
+
+const mockEvent = {
+  updateState() {
+    return mockData;
+  }
+};
+
 it(`Hover on small card film should pass to the callback data-object from film which hovered`, () => {
-  const filmData = {
-    id: 0,
-    filmName: `Name`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
-  };
-  const updateState = jest.fn();
+
+  const onHoverHandler = jest.fn();
 
   const screen = shallow(
       <SmallMovieCard
-        filmData={filmData}
-        onHoverHandler={() => updateState()}
+        filmData={mockData}
+        onHoverHandler={onHoverHandler}
       />
   );
 
-  console.log(screen);
+  screen.simulate(`mouseenter`, mockEvent);
+
+  expect(onHoverHandler).toHaveBeenCalledTimes(1);
+  expect(onHoverHandler.mock.calls[0][0]).toMatchObject(mockData);
 });
