@@ -1,12 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
-
-const promoFilmData = {
-  filmName: `Film Name`,
-  genere: `Genere`,
-  releaseDate: 1999,
-};
+import MovieList from './movies-list.jsx';
 
 const films = [
   {
@@ -36,10 +30,9 @@ const films = [
   },
 ];
 
-it(`Render App`, ()=> {
+it(`Render MovieList`, () => {
   const tree = renderer
-    .create(<App
-      promoFilmData={promoFilmData}
+    .create(<MovieList
       films={films}
     />)
     .toJSON();
