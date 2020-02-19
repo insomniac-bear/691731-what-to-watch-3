@@ -41,7 +41,7 @@ it(`Render Main`, () => {
     .create(<Main
       promoFilmData={promoFilmData}
       films={films}
-      onSmallMovieCardTitleClick={() => {}}
+      cardClickHandler={() => {}}
     />)
     .toJSON();
 

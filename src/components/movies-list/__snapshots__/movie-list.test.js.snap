@@ -6,6 +6,7 @@ exports[`Render MovieList 1`] = `
 >
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
   >
     <div
@@ -24,6 +25,7 @@ exports[`Render MovieList 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
+        onClick={[Function]}
       >
         Name-0
       </a>
@@ -31,6 +33,7 @@ exports[`Render MovieList 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
   >
     <div
@@ -49,6 +52,7 @@ exports[`Render MovieList 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
+        onClick={[Function]}
       >
         Name-1
       </a>
@@ -56,6 +60,7 @@ exports[`Render MovieList 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
   >
     <div
@@ -74,6 +79,7 @@ exports[`Render MovieList 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
+        onClick={[Function]}
       >
         Name-2
       </a>
@@ -81,6 +87,7 @@ exports[`Render MovieList 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
   >
     <div
@@ -99,6 +106,7 @@ exports[`Render MovieList 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
+        onClick={[Function]}
       >
         Name-3
       </a>
@@ -106,6 +114,7 @@ exports[`Render MovieList 1`] = `
   </article>
   <article
     className="small-movie-card catalog__movies-card"
+    onClick={[Function]}
     onMouseEnter={[Function]}
   >
     <div
@@ -124,6 +133,7 @@ exports[`Render MovieList 1`] = `
       <a
         className="small-movie-card__link"
         href="movie-page.html"
+        onClick={[Function]}
       >
         Name-4
       </a>

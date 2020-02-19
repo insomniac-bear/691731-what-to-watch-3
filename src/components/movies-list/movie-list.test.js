@@ -34,6 +34,7 @@ it(`Render MovieList`, () => {
   const tree = renderer
     .create(<MovieList
       films={films}
+      cardClickHandler={() => {}}
     />)
     .toJSON();
 

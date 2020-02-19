@@ -13,6 +13,7 @@ it(`Render SmallMovieCard`, () => {
     .create(<SmallMovieCard
       filmData={filmData}
       onHoverHandler={() => {}}
+      onCardClickHandler={() => {}}
     />)
     .toJSON();
 

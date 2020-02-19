@@ -259,6 +259,7 @@ Array [
       >
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -277,6 +278,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Name-0
             </a>
@@ -284,6 +286,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -302,6 +305,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Name-1
             </a>
@@ -309,6 +313,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -327,6 +332,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Name-2
             </a>
@@ -334,6 +340,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -352,6 +359,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Name-3
             </a>
@@ -359,6 +367,7 @@ Array [
         </article>
         <article
           className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
           onMouseEnter={[Function]}
         >
           <div
@@ -377,6 +386,7 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
               Name-4
             </a>
