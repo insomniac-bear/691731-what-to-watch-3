@@ -7,18 +7,26 @@ class SmallMovieCard extends PureComponent {
   }
 
   render() {
-    const {filmData, onHoverHandler} = this.props;
+    const {filmData, onHoverHandler, onCardClickHandler} = this.props;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
         onMouseEnter={() => onHoverHandler(filmData)}
+        onClick={() => onCardClickHandler(filmData.id)}
       >
         <div className="small-movie-card__image">
           <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />
         </div>
         <h3 className="small-movie-card__title">
-          <a className="small-movie-card__link" href="movie-page.html">
+          <a
+            className="small-movie-card__link"
+            href="movie-page.html"
+            onClick={(evt) => {
+              evt.preventDefault();
+              onCardClickHandler(filmData.id);
+            }}
+          >
             {filmData.filmName}
           </a>
         </h3>
@@ -34,6 +42,7 @@ SmallMovieCard.propTypes = {
     posterUrl: PropTypes.string.isRequired,
   }).isRequired,
   onHoverHandler: PropTypes.func.isRequired,
+  onCardClickHandler: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

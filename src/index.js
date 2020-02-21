@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import films from './mocks/films.js';
+import filmsDetails from './mocks/films-details.js';
 
 import App from './components/app/app.jsx';
 
@@ -14,6 +15,7 @@ ReactDOM.render(
     <App
       promoFilmData={promoFilmData}
       films={films}
+      filmsDetails={filmsDetails}
     />,
     document.querySelector(`#root`)
 );

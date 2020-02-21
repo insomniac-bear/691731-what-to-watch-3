@@ -16,25 +16,42 @@ const mockData = {
   posterUrl: `img/bohemian-rhapsody.jpg`
 };
 
-const mockEvent = {
+const mockHover = {
   updateState() {
     return mockData;
   }
 };
 
-it(`Hover on small card film should pass to the callback data-object from film which hovered`, () => {
+const mockClick = {
+  preventDefault() {
+    return mockData.id;
+  },
+};
+
+it(`Hover on small card film should pass to the callback data-object from film which hovered, click on card or title return id film`, () => {
 
   const onHoverHandler = jest.fn();
+  const onCardClickHandler = jest.fn();
 
   const screen = shallow(
       <SmallMovieCard
         filmData={mockData}
         onHoverHandler={onHoverHandler}
+        onCardClickHandler={onCardClickHandler}
       />
   );
 
-  screen.simulate(`mouseenter`, mockEvent);
+  screen.simulate(`mouseenter`, mockHover);
+
+  const title = screen.find(`.small-movie-card__link`);
+  const id = mockData.id;
+
+  screen.simulate(`click`, mockClick);
+  title.simulate(`click`, mockClick);
 
   expect(onHoverHandler).toHaveBeenCalledTimes(1);
   expect(onHoverHandler.mock.calls[0][0]).toMatchObject(mockData);
+
+  expect(onCardClickHandler.mock.calls[0][0]).toBe(id);
+  expect(onCardClickHandler.mock.calls[1][0]).toBe(id);
 });

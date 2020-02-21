@@ -6,7 +6,7 @@ import MoviesList from '../movies-list/movies-list.jsx';
 
 
 const Main = (props) => {
-  const {promoFilmData, films} = props;
+  const {promoFilmData, films, cardClickHandler} = props;
 
   return <React.Fragment>
     <MovieCard promoFilmData={promoFilmData}/>
@@ -46,7 +46,10 @@ const Main = (props) => {
           </li>
         </ul>
 
-        <MoviesList films={films} />
+        <MoviesList
+          films={films}
+          cardClickHandler={cardClickHandler}
+        />
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
@@ -78,7 +81,8 @@ Main.propTypes = {
     id: PropTypes.number.isRequired,
     filmName: PropTypes.string.isRequired,
     posterUrl: PropTypes.string.isRequired,
-  })).isRequired
+  })).isRequired,
+  cardClickHandler: PropTypes.func.isRequired,
 };
 
 export default Main;
