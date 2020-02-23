@@ -7,13 +7,20 @@ class MoviesList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      hoveredElement: {},
+      hoveredElement: false,
     };
-    this.onSmallCardHover = this.onSmallCardHover.bind(this);
+    this._onSmallCardHover = this._onSmallCardHover.bind(this);
+    this._onSmallCardMouseOut = this._onSmallCardMouseOut.bind(this);
   }
 
-  onSmallCardHover(hoveredSmallFilmCard) {
-    this.setState({hoveredElement: hoveredSmallFilmCard});
+  _onSmallCardHover(hoveredSmallFilmCard) {
+    this.timerId = setTimeout(() => {
+      this.setState({hoveredElement: hoveredSmallFilmCard});
+    }, 1000);
+  }
+
+  _onSmallCardMouseOut() {
+    this.setState({hoveredElement: false});
   }
 
   render() {
@@ -25,8 +32,10 @@ class MoviesList extends PureComponent {
             (filmData) => <SmallMovieCard
               key={filmData.id}
               filmData={filmData}
-              onHoverHandler={this.onSmallCardHover}
+              onHoverHandler={this._onSmallCardHover}
+              onMouseOut={this._onSmallCardMouseOut}
               onCardClickHandler={cardClickHandler}
+              hoveredElement={this.state.hoveredElement}
             />)
         }
       </div>

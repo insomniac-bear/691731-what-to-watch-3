@@ -1,22 +1,25 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import VideoPreview from '../vide-preview/video-preview.jsx';
+
 class SmallMovieCard extends PureComponent {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const {filmData, onHoverHandler, onCardClickHandler} = this.props;
+    const {filmData, onHoverHandler, onMouseOut, onCardClickHandler, hoveredElement} = this.props;
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseEnter={() => onHoverHandler(filmData)}
+        onMouseEnter={() => onHoverHandler(filmData.id)}
+        onMouseLeave={() => onMouseOut()}
         onClick={() => onCardClickHandler(filmData.id)}
       >
         <div className="small-movie-card__image">
-          <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />
+          {filmData.id === hoveredElement ? <VideoPreview filmPreview={filmData.filmPreview} posterUrl={filmData.posterUrl}></VideoPreview> : <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />}
         </div>
         <h3 className="small-movie-card__title">
           <a
@@ -40,9 +43,14 @@ SmallMovieCard.propTypes = {
     id: PropTypes.number.isRequired,
     filmName: PropTypes.string.isRequired,
     posterUrl: PropTypes.string.isRequired,
+    filmPreview: PropTypes.string.isRequired,
   }).isRequired,
   onHoverHandler: PropTypes.func.isRequired,
   onCardClickHandler: PropTypes.func.isRequired,
+  hoveredElement: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number
+  ]),
 };
 
 export default SmallMovieCard;
