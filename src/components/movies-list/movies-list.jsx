@@ -20,6 +20,7 @@ class MoviesList extends PureComponent {
   }
 
   _onSmallCardMouseOut() {
+    clearTimeout(this.timerId);
     this.setState({hoveredElement: {}});
   }
 

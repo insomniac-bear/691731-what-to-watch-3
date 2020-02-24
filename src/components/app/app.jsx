@@ -48,7 +48,8 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderMain()}
           </Route>
-          <Route exact path=""></Route>
+          <Route exact path="/dev-movie-page">
+          </Route>
         </Switch>
       </BrowserRouter>
     );
