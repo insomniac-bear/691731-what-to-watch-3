@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 class Tabs extends PureComponent {
   constructor(props) {
@@ -40,5 +41,9 @@ class Tabs extends PureComponent {
     </React.Component>;
   }
 }
+
+Tabs.propTypes = {
+  filmData: PropTypes.shape().isRequired,
+};
 
 export default Tabs;
