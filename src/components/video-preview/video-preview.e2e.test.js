@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import VideoPreview from './video-preview.jsx.js';
+import VideoPreview from './video-preview.jsx';
 
 const mockData = {
   filmPreview: `some film preview`,
