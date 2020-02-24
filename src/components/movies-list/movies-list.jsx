@@ -7,7 +7,7 @@ class MoviesList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      hoveredElement: false,
+      hoveredElement: {},
     };
     this._onSmallCardHover = this._onSmallCardHover.bind(this);
     this._onSmallCardMouseOut = this._onSmallCardMouseOut.bind(this);
@@ -20,7 +20,7 @@ class MoviesList extends PureComponent {
   }
 
   _onSmallCardMouseOut() {
-    this.setState({hoveredElement: false});
+    this.setState({hoveredElement: {}});
   }
 
   render() {

@@ -14,12 +14,15 @@ class SmallMovieCard extends PureComponent {
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseEnter={() => onHoverHandler(filmData.id)}
+        onMouseEnter={() => onHoverHandler(filmData)}
         onMouseLeave={() => onMouseOut()}
         onClick={() => onCardClickHandler(filmData.id)}
       >
         <div className="small-movie-card__image">
-          {filmData.id === hoveredElement ? <VideoPreview filmPreview={filmData.filmPreview} posterUrl={filmData.posterUrl}></VideoPreview> : <img src={filmData.posterUrl} alt={filmData.filmName} width="280" height="175" />}
+          <VideoPreview
+            isPlaying={hoveredElement === filmData}
+            filmPreview={filmData.filmPreview}
+            posterUrl={filmData.posterUrl} />
         </div>
         <h3 className="small-movie-card__title">
           <a
@@ -46,11 +49,9 @@ SmallMovieCard.propTypes = {
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
   onHoverHandler: PropTypes.func.isRequired,
+  onMouseOut: PropTypes.func.isRequired,
   onCardClickHandler: PropTypes.func.isRequired,
-  hoveredElement: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.number
-  ]),
+  hoveredElement: PropTypes.shape(),
 };
 
 export default SmallMovieCard;

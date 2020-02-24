@@ -12,27 +12,32 @@ const films = [
   {
     id: 0,
     filmName: `Name-0`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
+    posterUrl: `img/bohemian-rhapsody.jpg`,
+    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     id: 1,
     filmName: `Name-1`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
+    posterUrl: `img/bohemian-rhapsody.jpg`,
+    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     id: 2,
     filmName: `Name-2`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
+    posterUrl: `img/bohemian-rhapsody.jpg`,
+    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     id: 3,
     filmName: `Name-3`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
+    posterUrl: `img/bohemian-rhapsody.jpg`,
+    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
   {
     id: 4,
     filmName: `Name-4`,
-    posterUrl: `img/bohemian-rhapsody.jpg`
+    posterUrl: `img/bohemian-rhapsody.jpg`,
+    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 ];
 
@@ -100,7 +105,11 @@ it(`Render App`, ()=> {
       promoFilmData={promoFilmData}
       films={films}
       filmsDetails={filmsDetails}
-    />)
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    })
     .toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -8,14 +8,15 @@ exports[`Render MovieList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Name-0"
+      <video
         height="175"
-        src="img/bohemian-rhapsody.jpg"
+        poster="img/bohemian-rhapsody.jpg"
+        src="Some film url"
         width="280"
       />
     </div>
@@ -35,14 +36,15 @@ exports[`Render MovieList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Name-1"
+      <video
         height="175"
-        src="img/bohemian-rhapsody.jpg"
+        poster="img/bohemian-rhapsody.jpg"
+        src="Some film url"
         width="280"
       />
     </div>
@@ -62,14 +64,15 @@ exports[`Render MovieList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Name-2"
+      <video
         height="175"
-        src="img/bohemian-rhapsody.jpg"
+        poster="img/bohemian-rhapsody.jpg"
+        src="Some film url"
         width="280"
       />
     </div>
@@ -89,14 +92,15 @@ exports[`Render MovieList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Name-3"
+      <video
         height="175"
-        src="img/bohemian-rhapsody.jpg"
+        poster="img/bohemian-rhapsody.jpg"
+        src="Some film url"
         width="280"
       />
     </div>
@@ -116,14 +120,15 @@ exports[`Render MovieList 1`] = `
     className="small-movie-card catalog__movies-card"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <div
       className="small-movie-card__image"
     >
-      <img
-        alt="Name-4"
+      <video
         height="175"
-        src="img/bohemian-rhapsody.jpg"
+        poster="img/bohemian-rhapsody.jpg"
+        src="Some film url"
         width="280"
       />
     </div>
