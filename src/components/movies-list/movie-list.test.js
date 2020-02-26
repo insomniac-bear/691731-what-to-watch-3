@@ -38,6 +38,7 @@ const films = [
 it(`Render MovieList`, () => {
   const tree = renderer
     .create(<MovieList
+      genere={`All`}
       films={films}
       cardClickHandler={() => {}}
     />, {

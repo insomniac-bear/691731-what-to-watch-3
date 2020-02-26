@@ -47,6 +47,7 @@ const Main = (props) => {
         </ul>
 
         <MoviesList
+          genere={`All`}
           films={films}
           cardClickHandler={cardClickHandler}
         />

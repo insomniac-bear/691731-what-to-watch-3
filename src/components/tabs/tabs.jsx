@@ -1,44 +1,59 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import Details from '../details/details.jsx';
+import Overview from '../overview/overview.jsx';
+import Reviews from '../reviews/reviews.jsx';
+import TabItem from '../tab-item/tab-item.jsx';
+
+const TABS_NAME = [`Overview`, `Details`, `Reviews`];
+
 class Tabs extends PureComponent {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeTab: `Overview`,
+    };
+
+    this._onChangeActiveTab = this._onChangeActiveTab.bind(this);
+  }
+
+  _onChangeActiveTab(newTab) {
+    this.setState({
+      activeTab: newTab,
+    });
+  }
+
+  _renderTabContent() {
+    const {filmData} = this.props;
+
+    switch (this.state.activeTab) {
+      case `Overview`:
+        return <Overview filmData={filmData}/>;
+      case `Details`:
+        return <Details filmData={filmData}/>;
+      case `Reviews`:
+        return <Reviews comments={filmData.comments} />;
+      default:
+        break;
+    }
+    return <p>Sorry, shit happenes</p>;
   }
 
   render() {
-    const {filmData} = this.props;
-    return <React.Component>
+    return <React.Fragment>
       <div className="movie-card__desc">
         <nav className="movie-nav movie-card__nav">
           <ul className="movie-nav__list">
-            <li className="movie-nav__item  movie-nav__item--active">
-              <a href="#" className="movie-nav__link">Overview</a>
-            </li>
-            <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Details</a>
-            </li>
-            <li className="movie-nav__item">
-              <a href="#" className="movie-nav__link">Reviews</a>
-            </li>
+            {TABS_NAME.map((tabName, index) => <TabItem key={tabName + index} tabName={tabName} activeTab={this.state.activeTab} tabChangeHandler={this._onChangeActiveTab} />)}
           </ul>
         </nav>
 
-        <div className="movie-rating">
-          <div className="movie-rating__score">{filmData.rating}</div>
-          <p className="movie-rating__meta">
-            <span className="movie-rating__level">Very good</span>
-            <span className="movie-rating__count">240 ratings</span>
-          </p>
-        </div>
+        {this._renderTabContent()}
 
-        <div className="movie-card__text">
-          <p>{filmData.describe}</p>
-          <p className="movie-card__director"><strong>Director: {filmData.director}</strong></p>
-          <p className="movie-card__starring"><strong>Starring: {filmData.actors}</strong></p>
-        </div>
       </div>
-    </React.Component>;
+    </React.Fragment>;
   }
 }
 
