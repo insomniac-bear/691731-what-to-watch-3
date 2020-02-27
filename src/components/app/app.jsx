@@ -21,7 +21,7 @@ class App extends PureComponent {
   }
 
   _renderMain() {
-    const {promoFilmData, films, filmsDetails} = this.props;
+    const {promoFilmData, films} = this.props;
     const filmId = this.state.filmId;
 
     if (filmId < 0) {
@@ -35,7 +35,9 @@ class App extends PureComponent {
     } else {
       return (
         <MoviePage
-          filmData={filmsDetails[filmId]}
+          filmData={films[filmId]}
+          films={films}
+          cardClickHandler={this.updateFilmId}
         />
       );
     }
@@ -48,7 +50,8 @@ class App extends PureComponent {
           <Route exact path="/">
             {this._renderMain()}
           </Route>
-          <Route exact path=""></Route>
+          <Route exact path="/dev-movie-page">
+          </Route>
         </Switch>
       </BrowserRouter>
     );
@@ -65,8 +68,16 @@ App.propTypes = {
     id: PropTypes.isRequired,
     filmName: PropTypes.string,
     posterUrl: PropTypes.string,
+    filmPreview: PropTypes.string,
+    genere: PropTypes.string,
+    release: PropTypes.number,
+    runtime: PropTypes.number,
+    rating: PropTypes.number,
+    describe: PropTypes.string,
+    director: PropTypes.string,
+    actors: PropTypes.string,
+    comments: PropTypes.array,
   })).isRequired,
-  filmsDetails: PropTypes.array.isRequired,
 };
 
 export default App;

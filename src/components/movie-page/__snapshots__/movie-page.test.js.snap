@@ -72,7 +72,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Name
+            Name-0
           </h2>
           <p
             className="movie-card__meta"
@@ -80,12 +80,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Genere
+              genere-0
             </span>
             <span
               className="movie-card__year"
             >
-              1999
+              0
             </span>
           </p>
           <div
@@ -147,7 +147,7 @@ Array [
           <img
             alt="The Grand Budapest Hotel poster"
             height="327"
-            src="Some Poster"
+            src="img/bohemian-rhapsody.jpg"
             width="218"
           />
         </div>
@@ -166,6 +166,7 @@ Array [
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Overview
                 </a>
@@ -176,6 +177,7 @@ Array [
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Details
                 </a>
@@ -186,6 +188,7 @@ Array [
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Reviews
                 </a>
@@ -206,7 +209,7 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Very good
+                Bad
               </span>
               <span
                 className="movie-rating__count"
@@ -219,14 +222,14 @@ Array [
             className="movie-card__text"
           >
             <p>
-              Some Describe
+              describe-0
             </p>
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                Director
+                director-0
               </strong>
             </p>
             <p
@@ -234,7 +237,7 @@ Array [
             >
               <strong>
                 Starring: 
-                Actors
+                actors-0
               </strong>
             </p>
           </div>
@@ -257,15 +260,18 @@ Array [
         className="catalog__movies-list"
       >
         <article
-          className="small-movie-card  catalog__movies-card"
+          className="small-movie-card catalog__movies-card"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
           <div
             className="small-movie-card__image"
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of  Grindelwald"
+            <video
               height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              poster="img/bohemian-rhapsody.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
               width="280"
             />
           </div>
@@ -275,80 +281,9 @@ Array [
             <a
               className="small-movie-card__link"
               href="movie-page.html"
+              onClick={[Function]}
             >
-              Fantastic Beasts:  The Crimes of Grindelwald
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card  catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Bohemian Rhapsody"
-              height="175"
-              src="img/bohemian-rhapsody.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Bohemian Rhapsody
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card  catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Macbeth"
-              height="175"
-              src="img/macbeth.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Macbeth
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card  catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Aviator"
-              height="175"
-              src="img/aviator.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Aviator
+              Name-0
             </a>
           </h3>
         </article>

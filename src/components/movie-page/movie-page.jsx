@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import MoviesList from '../movies-list/movies-list.jsx';
+import Tabs from '../tabs/tabs.jsx';
+
 const MoviePage = (props) => {
-  const {filmData} = props;
+  const {filmData, films, cardClickHandler} = props;
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -62,35 +65,8 @@ const MoviePage = (props) => {
               <img src={filmData.posterUrl} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
-            <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item  movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
+            <Tabs filmData={filmData}/>
 
-              <div className="movie-rating">
-                <div className="movie-rating__score">{filmData.rating}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">Very good</span>
-                  <span className="movie-rating__count">240 ratings</span>
-                </p>
-              </div>
-
-              <div className="movie-card__text">
-                <p>{filmData.describe}</p>
-                <p className="movie-card__director"><strong>Director: {filmData.director}</strong></p>
-                <p className="movie-card__starring"><strong>Starring: {filmData.actors}</strong></p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -98,45 +74,13 @@ const MoviePage = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <div className="catalog__movies-list">
-            <article className="small-movie-card  catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of  Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts:  The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card  catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card  catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card  catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-              </h3>
-            </article>
-          </div>
+          <MoviesList
+            genere={filmData.genere}
+            films={films}
+            cardClickHandler={cardClickHandler}
+          />
         </section>
+
 
         <footer className="page-footer">
           <div className="logo">
@@ -158,6 +102,8 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   filmData: PropTypes.shape().isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  cardClickHandler: PropTypes.func.isRequired,
 };
 
 export default MoviePage;
