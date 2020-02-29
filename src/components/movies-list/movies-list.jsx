@@ -10,7 +10,6 @@ class MoviesList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      hoveredElement: {},
       sortedGenere: ``,
     };
   }
@@ -29,7 +28,6 @@ class MoviesList extends PureComponent {
 
   componentWillUnmount() {
     this.setState({
-      hoveredElement: {},
       sortedGenere: ``,
     });
   }
