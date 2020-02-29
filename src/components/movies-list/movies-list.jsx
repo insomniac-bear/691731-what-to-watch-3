@@ -2,6 +2,9 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 import SmallMovieCard from '../small-movie-card/small-movie-card.jsx';
+import withVideoPreview from '../../hocs/with-video-preview/with-video-preview.js';
+
+const SmallMovieCardWrapped = withVideoPreview(SmallMovieCard);
 
 class MoviesList extends PureComponent {
   constructor(props) {
@@ -10,19 +13,6 @@ class MoviesList extends PureComponent {
       hoveredElement: {},
       sortedGenere: ``,
     };
-    this._onSmallCardHover = this._onSmallCardHover.bind(this);
-    this._onSmallCardMouseOut = this._onSmallCardMouseOut.bind(this);
-  }
-
-  _onSmallCardHover(hoveredSmallFilmCard) {
-    this.timerId = setTimeout(() => {
-      this.setState({hoveredElement: hoveredSmallFilmCard});
-    }, 1000);
-  }
-
-  _onSmallCardMouseOut() {
-    clearTimeout(this.timerId);
-    this.setState({hoveredElement: {}});
   }
 
   _sortFilmOfGenere() {
@@ -52,7 +42,7 @@ class MoviesList extends PureComponent {
     return (
       <div className="catalog__movies-list">
         {sortedFilms.map(
-            (filmData) => <SmallMovieCard
+            (filmData) => <SmallMovieCardWrapped
               key={filmData.id}
               filmData={filmData}
               onHoverHandler={this._onSmallCardHover}
