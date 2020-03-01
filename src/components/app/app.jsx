@@ -8,53 +8,24 @@ import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 
 class App extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      filmId: -1,
-      selectedGenre: `All genres`,
-    };
-
-    this.updateFilmId = this.updateFilmId.bind(this);
-    this.changeGenre = this.changeGenre.bind(this);
-  }
-
-  updateFilmId(id) {
-    const {films} = this.props;
-    this.setState({filmId: id});
-    this.setState({selectedGenre: films[id].genre});
-  }
-
-  changeGenre(genre) {
-    this.setState({selectedGenre: genre});
-  }
-
-
-  _sortFilmOfGenre(activeGenre) {
-    const {films} = this.props;
-    return (activeGenre !== `All genres`) ? films.filter((film) => film.genre === activeGenre).slice(0, 4) : films;
-  }
-
   _renderMain() {
     const {
       promoFilmData,
       currentFilms,
       filmId,
+      selectedGenre,
       updateFilmId,
-      changeGenre
+      onChangeGenre,
     } = this.props;
-    // const filmId = this.state.filmId;
-    const currentFilmsList = this._sortFilmOfGenre(this.state.selectedGenre);
 
     if (filmId < 0) {
       return (
         <Main
           promoFilmData={promoFilmData}
-          films={currentFilmsList}
-          selectedGenre={this.state.selectedGenre}
-          cardClickHandler={this.updateFilmId}
-          onChangeGenre={this.changeGenre}
+          films={currentFilms}
+          selectedGenre={selectedGenre}
+          cardClickHandler={updateFilmId}
+          onChangeGenre={onChangeGenre}
         />
       );
     } else {
@@ -62,7 +33,7 @@ class App extends PureComponent {
         <MoviePage
           filmData={currentFilms[filmId]}
           films={currentFilms}
-          cardClickHandler={this.updateFilmId}
+          cardClickHandler={updateFilmId}
         />
       );
     }
@@ -89,7 +60,7 @@ App.propTypes = {
     genre: PropTypes.string.isRequired,
     releaseDate: PropTypes.number.isRequired,
   }).isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
+  currentFilms: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.isRequired,
     filmName: PropTypes.string,
     posterUrl: PropTypes.string,
@@ -103,6 +74,27 @@ App.propTypes = {
     actors: PropTypes.string,
     comments: PropTypes.array,
   })).isRequired,
+  filmId: PropTypes.number.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  updateFilmId: PropTypes.func.isRequired,
+  onChangeGenre: PropTypes.func.isRequired,
+
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  selectedGenre: state.selectedGenre,
+  currentFilms: state.currentFilms,
+  filmId: state.filmId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateFilmId(id) {
+    dispatch(ActionCreator.updateFilmId(id));
+  },
+  onChangeGenre(genre) {
+    dispatch(ActionCreator.onChangeGenre(genre));
+  },
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

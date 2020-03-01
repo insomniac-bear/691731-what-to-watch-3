@@ -8,14 +8,14 @@ const initialState = {
 };
 
 const ActionType = {
-  ON_CHANGE_GENRE: `ON_CHANHE_GENRE`,
+  ON_CHANGE_GENRE: `ON_CHANGE_GENRE`,
   GET_FILMS_OF_GENRE: `GET_FILMS_OF_GENRE`,
   UPDATE_FILM_ID: `UPDATE_FILM_ID`,
 };
 
 const ActionCreator = {
   onChangeGenre: (genre) => ({
-    type: ActionType.CHANGE_GENRE,
+    type: ActionType.ON_CHANGE_GENRE,
     payload: genre,
   }),
 
@@ -35,6 +35,7 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         selectedGenre: action.payload,
       });
+
     case ActionType.GET_FILMS_OF_GENRE:
       const {genre} = state;
 
@@ -46,10 +47,10 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         currentFilms: films.filter((film) => film.genre === genre)
       });
+
     case ActionType.UPDATE_FILM_ID:
       return extend(state, {
         filmId: action.payload,
-        selectedGenre: films[initialState.filmId],
       });
   }
 
