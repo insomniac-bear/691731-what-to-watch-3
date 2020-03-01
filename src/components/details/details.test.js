@@ -6,7 +6,7 @@ const mockData = {
   id: 0,
   filmName: `Film Named`,
   posterUrl: `someUrl`,
-  genere: `Genere`,
+  genre: `Genre`,
   release: 2018,
   runtime: 99,
   rating: 9.9,

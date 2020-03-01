@@ -69,7 +69,7 @@ exports[`Render Details tab 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Genere
+        Genre
       </span>
     </p>
     <p

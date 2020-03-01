@@ -23,7 +23,7 @@ const MoviePage = (props) => {
             <div className="movie-card__desc">
               <h2 className="movie-card__title">{filmData.filmName}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{filmData.genere}</span>
+                <span className="movie-card__genre">{filmData.genre}</span>
                 <span className="movie-card__year">{filmData.release}</span>
               </p>
 

@@ -89,7 +89,7 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Genere
+              Genre
             </span>
             <span
               className="movie-card__year"
@@ -158,7 +158,7 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
             All genres
@@ -169,10 +169,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
-            genere-0
+            genre-0
           </a>
         </li>
         <li
@@ -180,10 +180,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
-            genere-1
+            genre-1
           </a>
         </li>
         <li
@@ -191,10 +191,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
-            genere-2
+            genre-2
           </a>
         </li>
         <li
@@ -202,10 +202,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
-            genere-3
+            genre-3
           </a>
         </li>
         <li
@@ -213,10 +213,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="{genere}"
+            href="{genre}"
             onClick={[Function]}
           >
-            genere-4
+            genre-4
           </a>
         </li>
       </ul>

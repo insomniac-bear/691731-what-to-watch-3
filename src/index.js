@@ -10,7 +10,7 @@ import {reducer} from './reducer.js';
 
 const promoFilmData = {
   filmName: `The Grand Budapest Hotel`,
-  genere: `Drama`,
+  genre: `Drama`,
   releaseDate: 2014,
 };
 

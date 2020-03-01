@@ -9,7 +9,7 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genere}"
+      href="{genre}"
       onClick={[Function]}
     >
       All genres
@@ -20,10 +20,10 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genere}"
+      href="{genre}"
       onClick={[Function]}
     >
-      genere-0
+      genre-0
     </a>
   </li>
   <li
@@ -31,10 +31,10 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genere}"
+      href="{genre}"
       onClick={[Function]}
     >
-      genere-1
+      genre-1
     </a>
   </li>
   <li
@@ -42,10 +42,10 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genere}"
+      href="{genre}"
       onClick={[Function]}
     >
-      genere-2
+      genre-2
     </a>
   </li>
 </ul>

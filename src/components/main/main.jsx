@@ -10,9 +10,9 @@ const Main = (props) => {
   const {
     promoFilmData,
     films,
-    selectedGenere,
+    selectedGenre,
     cardClickHandler,
-    onChangeGenere
+    onChangeGenre
   } = props;
 
   return <React.Fragment>
@@ -22,8 +22,8 @@ const Main = (props) => {
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <GenresList
           films={films}
-          activeGenere={selectedGenere}
-          onChangeGenere={onChangeGenere}
+          activeGenre={selectedGenre}
+          onChangeGenre={onChangeGenre}
         />
         <MoviesList
           films={films}
@@ -53,7 +53,7 @@ const Main = (props) => {
 Main.propTypes = {
   promoFilmData: PropTypes.shape({
     filmName: PropTypes.string.isRequired,
-    genere: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
     releaseDate: PropTypes.number.isRequired,
   }).isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -61,9 +61,9 @@ Main.propTypes = {
     filmName: PropTypes.string.isRequired,
     posterUrl: PropTypes.string.isRequired,
   })).isRequired,
-  selectedGenere: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   cardClickHandler: PropTypes.func.isRequired,
-  onChangeGenere: PropTypes.func.isRequired,
+  onChangeGenre: PropTypes.func.isRequired,
 };
 
 export default Main;

@@ -4,38 +4,38 @@ import PropTypes from 'prop-types';
 // Функция построения массива уникальных жанров по всем переданным фильмам
 // На вход подается массив объектов с карточками фильмов
 // На выходе массив с неповторяющимися именами жанров
-const getUniqueGenere = (filmsList) => {
-  const generesList = new Set();
-  generesList.add(`All genres`);
+const getUniqueGenre = (filmsList) => {
+  const genresList = new Set();
+  genresList.add(`All genres`);
   filmsList.forEach((film) => {
-    generesList.add(film.genere);
+    genresList.add(film.genre);
   });
 
-  return Array.from(generesList);
+  return Array.from(genresList);
 };
 
 const GenresList = (props) => {
-  const {films, activeGenere, onChangeGenere} = props;
-  const generes = getUniqueGenere(films);
+  const {films, activeGenre, onChangeGenre} = props;
+  const genres = getUniqueGenre(films);
 
   return <React.Fragment>
     <ul className="catalog__genres-list">
-      {generes.map((genere, i) => {
+      {genres.map((genre, i) => {
         return (
           <li
-            key={`${genere}-${i}`}
-            className={genere === activeGenere ?
+            key={`${genre}-${i}`}
+            className={genre === activeGenre ?
               `catalog__genres-item catalog__genres-item--active` :
               `catalog__genres-item`} >
             <a
-              href="{genere}"
+              href="{genre}"
               className="catalog__genres-link"
               onClick={(evt) => {
                 evt.preventDefault();
-                onChangeGenere(genere);
+                onChangeGenre(genre);
               }}
             >
-              {genere}
+              {genre}
             </a>
           </li>
         );
@@ -46,8 +46,8 @@ const GenresList = (props) => {
 
 GenresList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  activeGenere: PropTypes.string.isRequired,
-  onChangeGenere: PropTypes.func.isRequired,
+  activeGenre: PropTypes.string.isRequired,
+  onChangeGenre: PropTypes.func.isRequired,
 };
 
 export default GenresList;

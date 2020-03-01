@@ -29,7 +29,7 @@ const Details = (props) => {
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>
-          <span className="movie-card__details-value">{filmData.genere}</span>
+          <span className="movie-card__details-value">{filmData.genre}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Released</strong>
@@ -45,7 +45,7 @@ Details.propTypes = {
     actors: PropTypes.string,
     director: PropTypes.string,
     runtime: PropTypes.number,
-    genere: PropTypes.string,
+    genre: PropTypes.string,
     release: PropTypes.number,
   }).isRequired,
 };

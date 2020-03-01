@@ -25,7 +25,7 @@ const MovieCard = (props) => {
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{promoFilmData.filmName}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{promoFilmData.genere}</span>
+              <span className="movie-card__genre">{promoFilmData.genre}</span>
               <span className="movie-card__year">{promoFilmData.releaseDate}</span>
             </p>
 
@@ -53,7 +53,7 @@ const MovieCard = (props) => {
 MovieCard.propTypes = {
   promoFilmData: PropTypes.shape({
     filmName: PropTypes.string.isRequired,
-    genere: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
     releaseDate: PropTypes.number.isRequired,
   }).isRequired,
 };

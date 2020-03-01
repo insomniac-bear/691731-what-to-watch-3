@@ -2,42 +2,55 @@ import {extend} from './utils.js';
 import films from './mocks/films.js';
 
 const initialState = {
-  genere: `All`,
+  selectedGenre: `All genres`,
   currentFilms: films,
+  filmId: -1,
 };
 
 const ActionType = {
-  CHANGE_GENERE: `CHANHE_GENERE`,
-  GET_FILMS_OF_GENERE: `GET_FILMS_OF_GENERE`,
+  ON_CHANGE_GENRE: `ON_CHANHE_GENRE`,
+  GET_FILMS_OF_GENRE: `GET_FILMS_OF_GENRE`,
+  UPDATE_FILM_ID: `UPDATE_FILM_ID`,
 };
 
 const ActionCreator = {
-  changeGenere: (genere) => ({
-    type: ActionType.CHANGE_GENERE,
-    payload: genere,
+  onChangeGenre: (genre) => ({
+    type: ActionType.CHANGE_GENRE,
+    payload: genre,
   }),
 
-  getFilmsOfGenere: () => ({
-    type: ActionType.GET_FILMS_OF_GENERE,
+  getFilmsOfGenre: () => ({
+    type: ActionType.GET_FILMS_OF_GENRE,
+  }),
+
+  updateFilmId: (id) => ({
+    type: ActionType.UPDATE_FILM_ID,
+    payload: id,
   }),
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.CHANGE_GENERE:
+    case ActionType.ON_CHANGE_GENRE:
       return extend(state, {
-        genere: action.payload,
+        selectedGenre: action.payload,
       });
-    case ActionType.GET_FILMS_OF_GENERE:
-      const {genere, filmsList} = state;
+    case ActionType.GET_FILMS_OF_GENRE:
+      const {genre} = state;
 
-      if (genere === `All`) {
+      if (genre === `All genres`) {
         return extend(state, {
           currentFilms: films,
         });
       }
-
-      return extend(state, {currentFilms: filmsList.filter((film) => film.genere === genere)});
+      return extend(state, {
+        currentFilms: films.filter((film) => film.genre === genre)
+      });
+    case ActionType.UPDATE_FILM_ID:
+      return extend(state, {
+        filmId: action.payload,
+        selectedGenre: films[initialState.filmId],
+      });
   }
 
   return state;

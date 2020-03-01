@@ -13,49 +13,55 @@ class App extends PureComponent {
 
     this.state = {
       filmId: -1,
-      selectedGenere: `All genres`,
+      selectedGenre: `All genres`,
     };
 
     this.updateFilmId = this.updateFilmId.bind(this);
-    this.changeGenere = this.changeGenere.bind(this);
+    this.changeGenre = this.changeGenre.bind(this);
   }
 
   updateFilmId(id) {
     const {films} = this.props;
     this.setState({filmId: id});
-    this.setState({selectedGenere: films[id].genere});
+    this.setState({selectedGenre: films[id].genre});
   }
 
-  changeGenere(genere) {
-    this.setState({selectedGenere: genere});
+  changeGenre(genre) {
+    this.setState({selectedGenre: genre});
   }
 
 
-  _sortFilmOfGenere(activeGenere) {
+  _sortFilmOfGenre(activeGenre) {
     const {films} = this.props;
-    return (activeGenere !== `All genres`) ? films.filter((film) => film.genere === activeGenere).slice(0, 4) : films;
+    return (activeGenre !== `All genres`) ? films.filter((film) => film.genre === activeGenre).slice(0, 4) : films;
   }
 
   _renderMain() {
-    const {promoFilmData, films} = this.props;
-    const filmId = this.state.filmId;
-    const currentFilmsList = this._sortFilmOfGenere(this.state.selectedGenere);
+    const {
+      promoFilmData,
+      currentFilms,
+      filmId,
+      updateFilmId,
+      changeGenre
+    } = this.props;
+    // const filmId = this.state.filmId;
+    const currentFilmsList = this._sortFilmOfGenre(this.state.selectedGenre);
 
     if (filmId < 0) {
       return (
         <Main
           promoFilmData={promoFilmData}
           films={currentFilmsList}
-          selectedGenere={this.state.selectedGenere}
+          selectedGenre={this.state.selectedGenre}
           cardClickHandler={this.updateFilmId}
-          onChangeGenere={this.changeGenere}
+          onChangeGenre={this.changeGenre}
         />
       );
     } else {
       return (
         <MoviePage
-          filmData={films[filmId]}
-          films={currentFilmsList}
+          filmData={currentFilms[filmId]}
+          films={currentFilms}
           cardClickHandler={this.updateFilmId}
         />
       );
@@ -80,7 +86,7 @@ class App extends PureComponent {
 App.propTypes = {
   promoFilmData: PropTypes.shape({
     filmName: PropTypes.string.isRequired,
-    genere: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
     releaseDate: PropTypes.number.isRequired,
   }).isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
@@ -88,7 +94,7 @@ App.propTypes = {
     filmName: PropTypes.string,
     posterUrl: PropTypes.string,
     filmPreview: PropTypes.string,
-    genere: PropTypes.string,
+    genre: PropTypes.string,
     release: PropTypes.number,
     runtime: PropTypes.number,
     rating: PropTypes.number,

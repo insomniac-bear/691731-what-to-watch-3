@@ -16,7 +16,7 @@ const mockData = [
     filmName: `Name-0`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-0`,
+    genre: `genre-0`,
     release: 0,
     rating: 0,
     describe: `describe-0`,
@@ -48,7 +48,7 @@ const mockData = [
     filmName: `Name-1`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-1`,
+    genre: `genre-1`,
     release: 0,
     rating: 0,
     describe: `describe-1`,
@@ -80,7 +80,7 @@ const mockData = [
     filmName: `Name-2`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-2`,
+    genre: `genre-2`,
     release: 0,
     rating: 0,
     describe: `describe-2`,
@@ -112,7 +112,7 @@ const mockData = [
 
 const mockClick = {
   preventDefault() {
-    return mockData.genere;
+    return mockData.genre;
   },
 };
 
@@ -123,8 +123,8 @@ it(`Click on genre item return genre name`, () => {
   const genresListWrapper = shallow(
       <GenresList
         films={mockData}
-        activeGenere={mockData[0].genere}
-        onChangeGenere={onChangeGenre}
+        activeGenre={mockData[0].genre}
+        onChangeGenre={onChangeGenre}
       />
   );
 

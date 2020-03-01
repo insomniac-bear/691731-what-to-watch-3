@@ -6,7 +6,7 @@ import withVideoPreview from "./with-video-preview.js";
 const mockData = {
   id: `id-0`,
   name: `FilmName`,
-  genre: `SomeGenere`,
+  genre: `SomeGenre`,
   release: 9999,
   posterUrl: `SomePosterUrl`,
   filmPreview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
