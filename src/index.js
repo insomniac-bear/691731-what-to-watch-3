@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import films from './mocks/films.js';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 import App from './components/app/app.jsx';
+
+import films from './mocks/films.js';
+import {reducer} from './reducer.js';
 
 const promoFilmData = {
   filmName: `The Grand Budapest Hotel`,
@@ -10,10 +14,17 @@ const promoFilmData = {
   releaseDate: 2014,
 };
 
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+);
+
 ReactDOM.render(
-    <App
-      promoFilmData={promoFilmData}
-      films={films}
-    />,
+    <Provider store={store}>
+      <App
+        promoFilmData={promoFilmData}
+        films={films}
+      />
+    </Provider>,
     document.querySelector(`#root`)
 );

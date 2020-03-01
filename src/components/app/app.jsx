@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer.js';
 
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
@@ -10,33 +12,50 @@ class App extends PureComponent {
     super(props);
 
     this.state = {
-      filmId: -1
+      filmId: -1,
+      selectedGenere: `All genres`,
     };
 
     this.updateFilmId = this.updateFilmId.bind(this);
+    this.changeGenere = this.changeGenere.bind(this);
   }
 
   updateFilmId(id) {
+    const {films} = this.props;
     this.setState({filmId: id});
+    this.setState({selectedGenere: films[id].genere});
+  }
+
+  changeGenere(genere) {
+    this.setState({selectedGenere: genere});
+  }
+
+
+  _sortFilmOfGenere(activeGenere) {
+    const {films} = this.props;
+    return (activeGenere !== `All genres`) ? films.filter((film) => film.genere === activeGenere).slice(0, 4) : films;
   }
 
   _renderMain() {
     const {promoFilmData, films} = this.props;
     const filmId = this.state.filmId;
+    const currentFilmsList = this._sortFilmOfGenere(this.state.selectedGenere);
 
     if (filmId < 0) {
       return (
         <Main
           promoFilmData={promoFilmData}
-          films={films}
+          films={currentFilmsList}
+          selectedGenere={this.state.selectedGenere}
           cardClickHandler={this.updateFilmId}
+          onChangeGenere={this.changeGenere}
         />
       );
     } else {
       return (
         <MoviePage
           filmData={films[filmId]}
-          films={films}
+          films={currentFilmsList}
           cardClickHandler={this.updateFilmId}
         />
       );

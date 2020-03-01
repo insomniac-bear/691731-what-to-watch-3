@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SmallMovieCard = (props) => {
-  const {filmData, onHoverHandler, onCardClickHandler, renderVideoPreview} = props;
+  const {
+    filmData,
+    onHoverHandler,
+    onCardClickHandler,
+    renderVideoPreview
+  } = props;
 
   return (
     <article
