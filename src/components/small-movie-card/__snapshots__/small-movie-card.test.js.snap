@@ -9,14 +9,7 @@ exports[`Render SmallMovieCard 1`] = `
 >
   <div
     className="small-movie-card__image"
-  >
-    <video
-      height="175"
-      poster="img/bohemian-rhapsody.jpg"
-      src="Some film url"
-      width="280"
-    />
-  </div>
+  />
   <h3
     className="small-movie-card__title"
   >

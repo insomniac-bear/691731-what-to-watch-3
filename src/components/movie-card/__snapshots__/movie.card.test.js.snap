@@ -88,7 +88,7 @@ exports[`Render MovieCard 1`] = `
           <span
             className="movie-card__genre"
           >
-            Film Genere
+            Film Genre
           </span>
           <span
             className="movie-card__year"

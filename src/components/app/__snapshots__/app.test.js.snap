@@ -89,7 +89,7 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Genere
+              Genre
             </span>
             <span
               className="movie-card__year"
@@ -158,7 +158,8 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
             All genres
           </a>
@@ -168,9 +169,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
-            Comedies
+            genre-0
           </a>
         </li>
         <li
@@ -178,9 +180,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
-            Crime
+            genre-1
           </a>
         </li>
         <li
@@ -188,9 +191,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
-            Documentary
+            genre-2
           </a>
         </li>
         <li
@@ -198,9 +202,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
-            Dramas
+            genre-3
           </a>
         </li>
         <li
@@ -208,49 +213,10 @@ Array [
         >
           <a
             className="catalog__genres-link"
-            href="#"
+            href="{genre}"
+            onClick={[Function]}
           >
-            Horror
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Kids & Family
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Romance
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Sci-Fi
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="#"
-          >
-            Thrillers
+            genre-4
           </a>
         </li>
       </ul>

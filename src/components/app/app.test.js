@@ -1,10 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
 import App from './app.jsx';
+
+const mockStore = configureStore([]);
 
 const promoFilmData = {
   filmName: `Film Name`,
-  genere: `Genere`,
+  genre: `Genre`,
   releaseDate: 1999,
 };
 
@@ -14,7 +18,7 @@ const mockData = [
     filmName: `Name-0`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-0`,
+    genre: `genre-0`,
     release: 0,
     rating: 0,
     describe: `describe-0`,
@@ -46,7 +50,7 @@ const mockData = [
     filmName: `Name-1`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-1`,
+    genre: `genre-1`,
     release: 0,
     rating: 0,
     describe: `describe-1`,
@@ -78,7 +82,7 @@ const mockData = [
     filmName: `Name-2`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-2`,
+    genre: `genre-2`,
     release: 0,
     rating: 0,
     describe: `describe-2`,
@@ -110,7 +114,7 @@ const mockData = [
     filmName: `Name-3`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-3`,
+    genre: `genre-3`,
     release: 0,
     rating: 0,
     describe: `describe-3`,
@@ -142,7 +146,7 @@ const mockData = [
     filmName: `Name-4`,
     posterUrl: `img/bohemian-rhapsody.jpg`,
     filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genere: `genere-4`,
+    genre: `genre-4`,
     release: 0,
     rating: 0,
     describe: `describe-4`,
@@ -172,15 +176,24 @@ const mockData = [
 ];
 
 it(`Render App`, ()=> {
+  const store = mockStore({
+    selectedGenre: `All genres`,
+    currentFilms: mockData,
+    filmId: -1,
+  });
   const tree = renderer
-    .create(<App
-      promoFilmData={promoFilmData}
-      films={mockData}
-    />, {
-      createNodeMock: () => {
-        return {};
-      }
-    })
+    .create(
+        <Provider store={store}>
+          <App
+            promoFilmData={promoFilmData}
+            films={mockData}
+          />
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    )
     .toJSON();
 
   expect(tree).toMatchSnapshot();

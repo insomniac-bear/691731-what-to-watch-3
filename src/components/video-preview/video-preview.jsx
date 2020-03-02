@@ -30,9 +30,12 @@ class VideoPreview extends PureComponent {
     const {isPlaying} = this.props;
 
     if (isPlaying !== this.state.isPlaying) {
+      this.timerId = clearTimeout();
       this.setState({isPlaying}, () => {
         if (isPlaying) {
-          video.play();
+          this.timerId = setTimeout(() => {
+            video.play();
+          }, 1000);
         } else {
           video.load();
         }
@@ -41,6 +44,7 @@ class VideoPreview extends PureComponent {
   }
 
   componentWillUnmount() {
+    this.timerId = clearTimeout();
     const video = this._video.current;
 
     video.onPlay = null;

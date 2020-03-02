@@ -1,12 +1,14 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import Main from './main.jsx';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-const promoFilmData = {
-  filmName: `Film Name`,
-  genre: `Film Genre`,
-  releaseDate: 1995,
-};
+import GenresList from './genres-list.jsx';
+
+Enzyme.configure(
+    {
+      adapter: new Adapter()
+    }
+);
 
 const mockData = [
   {
@@ -103,88 +105,35 @@ const mockData = [
         date: `0000-01-01`,
         textComment: `Some comment`,
       },
-    ],
-  },
-  {
-    id: 3,
-    filmName: `Name-3`,
-    posterUrl: `img/bohemian-rhapsody.jpg`,
-    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genre: `genre-3`,
-    release: 0,
-    rating: 0,
-    describe: `describe-3`,
-    director: `director-3`,
-    actors: `actors-3`,
-    comments: [
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-    ],
-  },
-  {
-    id: 4,
-    filmName: `Name-4`,
-    posterUrl: `img/bohemian-rhapsody.jpg`,
-    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genre: `genre-4`,
-    release: 0,
-    rating: 0,
-    describe: `describe-4`,
-    director: `director-4`,
-    actors: `actors-4`,
-    comments: [
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-    ],
-  },
+    ]
+  }
 ];
 
-it(`Render Main`, () => {
-  const tree = renderer
-    .create(<Main
-      promoFilmData={promoFilmData}
-      films={mockData}
-      selectedGenre={mockData[0].genre}
-      cardClickHandler={() => {}}
-      onChangeGenre={() => {}}
-    />, {
-      createNodeMock: () => {
-        return {};
-      }
-    })
-    .toJSON();
 
-  expect(tree).toMatchSnapshot();
+const mockClick = {
+  preventDefault() {
+    return mockData.genre;
+  },
+};
+
+it(`Click on genre item return genre name`, () => {
+
+  const onChangeGenre = jest.fn();
+
+  const genresListWrapper = shallow(
+      <GenresList
+        films={mockData}
+        activeGenre={mockData[0].genre}
+        onChangeGenre={onChangeGenre}
+      />
+  );
+
+  const link = genresListWrapper.find(`.catalog__genres-link`);
+
+  link.forEach((node) => {
+    node.simulate(`click`, mockClick);
+  });
+
+  expect(onChangeGenre).toHaveBeenCalledTimes(mockData.length + 1);
+  expect(onChangeGenre.mock.calls[0][0]).toBe(`All genres`);
 });

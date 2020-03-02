@@ -4,7 +4,7 @@ import MovieCard from './movie-card.jsx';
 
 const promoFilmData = {
   filmName: `Film Name`,
-  genere: `Film Genere`,
+  genre: `Film Genre`,
   releaseDate: 1999,
 };
 
