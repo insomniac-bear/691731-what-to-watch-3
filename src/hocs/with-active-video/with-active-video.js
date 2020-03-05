@@ -3,24 +3,34 @@ import PropTypes from 'prop-types';
 
 import VideoPreview from '../../components/video-preview/video-preview.jsx';
 
-const withVideoPreview = (Component) => {
-  class WithVideoPreview extends PureComponent {
+const withActiveVideo = (Component) => {
+  class WithActiveVideo extends PureComponent {
     constructor(props) {
       super(props);
       this.state = {
         isPlaying: false,
       };
-      this._onHoverHandler = this._onHoverHandler.bind(this);
+      this._onHover = this._onHover.bind(this);
+      this._onMouseOut = this._onMouseOut.bind(this);
     }
 
-    _onHoverHandler() {
-      this.setState({isPlaying: !this.state.isPlaying});
+    _onHover() {
+      this.timerId = clearTimeout();
+      this.timerId = setTimeout(() => {
+        this.setState({isPlaying: true});
+      }, 1000);
+    }
+
+    _onMouseOut() {
+      this.timerId = clearTimeout();
+      this.setState({isPlaying: false});
     }
 
     render() {
       return <Component
         {...this.props}
-        onHoverHandler={this._onHoverHandler}
+        onHover={this._onHover}
+        onMouseOut={this._onMouseOut}
         renderVideoPreview={(filmPreview, posterUrl) => {
           return (
             <VideoPreview
@@ -34,11 +44,11 @@ const withVideoPreview = (Component) => {
     }
   }
 
-  WithVideoPreview.propTypes = {
+  WithActiveVideo.propTypes = {
     isPlaying: PropTypes.bool,
   };
 
-  return WithVideoPreview;
+  return WithActiveVideo;
 };
 
-export default withVideoPreview;
+export default withActiveVideo;

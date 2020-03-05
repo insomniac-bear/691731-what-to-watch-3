@@ -14,7 +14,8 @@ it(`Render SmallMovieCard`, () => {
     .create(<SmallMovieCard
       filmData={mockFilmData}
       hoveredElement={() => {}}
-      onHoverHandler={() => {}}
+      onHover={() => {}}
+      onMouseOut={() => {}}
       onCardClickHandler={() => {}}
       renderVideoPreview={()=>{}}
     />, {

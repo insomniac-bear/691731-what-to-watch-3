@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CatalogMoreButton from '../catalog-more-button/catalog-more-button.jsx';
 import MovieCard from '../movie-card/movie-card.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import GenresList from '../genres-list/genres-list.jsx';
@@ -11,8 +12,11 @@ const Main = (props) => {
     promoFilmData,
     films,
     selectedGenre,
+    currentFilmsCount,
+    showedFilmsCount,
     cardClickHandler,
-    onChangeGenre
+    onChangeGenre,
+    onChangeShowedFilmsCount,
   } = props;
 
   return <React.Fragment>
@@ -26,13 +30,15 @@ const Main = (props) => {
           onChangeGenre={onChangeGenre}
         />
         <MoviesList
-          films={films}
+          films={films.slice(0, showedFilmsCount)}
           cardClickHandler={cardClickHandler}
         />
 
-        <div className="catalog__more">
-          <button className="catalog__button" type="button">Show more</button>
-        </div>
+        {showedFilmsCount < currentFilmsCount ?
+          <CatalogMoreButton
+            onClickCatalogButton={onChangeShowedFilmsCount}
+          /> :
+          ``}
       </section>
       <footer className="page-footer">
         <div className="logo">
@@ -62,8 +68,11 @@ Main.propTypes = {
     posterUrl: PropTypes.string.isRequired,
   })).isRequired,
   selectedGenre: PropTypes.string.isRequired,
+  showedFilmsCount: PropTypes.number.isRequired,
+  currentFilmsCount: PropTypes.number.isRequired,
   cardClickHandler: PropTypes.func.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
+  onChangeShowedFilmsCount: PropTypes.func.isRequired,
 };
 
 export default Main;

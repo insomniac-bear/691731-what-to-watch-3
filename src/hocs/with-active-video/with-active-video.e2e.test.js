@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import withVideoPreview from "./with-video-preview.js";
+import withActiveVideo from "./with-active-video.js";
 
 const mockData = {
   id: `id-0`,
@@ -29,21 +29,22 @@ Enzyme.configure({
 });
 
 const MockComponent = () => <div />;
-const MockComponentWrapped = withVideoPreview(MockComponent);
+const MockComponentWrapped = withActiveVideo(MockComponent);
 
 it(`Should change withVideo`, () => {
   const wrapper = shallow(
       <MockComponentWrapped
         film={mockData}
         onCardClickHandler={() => {}}
-        onHoverHandler={() => {}}
+        onHover={() => {}}
+        onMouseOut={() => {}}
       />);
 
-  wrapper.instance()._onHoverHandler(mockData);
+  wrapper.instance()._onHover(mockData);
   setTimeout(() => {
     expect(wrapper.state().isPlaying).toEqual(true);
   }, 1000);
 
-  wrapper.instance()._onHoverHandler();
+  wrapper.instance()._onHover();
   expect(wrapper.state().isPlaying).toEqual(false);
 });
