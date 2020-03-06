@@ -29,9 +29,11 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const MockComponent = () => {
+const MockComponent = (props) => {
+  const {children} = props;
   return (
     <div>
+      {children}
     </div>
   );
 };
