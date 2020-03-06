@@ -5,6 +5,10 @@ import MoviesList from '../movies-list/movies-list.jsx';
 import Tabs from '../tabs/tabs.jsx';
 import PageHeader from '../page-header/page-header.jsx';
 
+import withActiveTab from '../../hocs/with-active-tab/with-active-tab.js';
+
+const TabsWrapped = withActiveTab(Tabs);
+
 const MoviePage = (props) => {
   const {filmData, films, cardClickHandler} = props;
   return (
@@ -52,7 +56,7 @@ const MoviePage = (props) => {
               <img src={filmData.posterUrl} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
-            <Tabs filmData={filmData}/>
+            <TabsWrapped filmData={filmData}/>
 
           </div>
         </div>

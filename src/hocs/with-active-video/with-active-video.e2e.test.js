@@ -1,7 +1,8 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import withActiveVideo from "./with-active-video.js";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import withActiveVideo from './with-active-video.js';
 
 const mockData = {
   id: `id-0`,
@@ -28,11 +29,24 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const MockComponent = () => <div />;
+const MockComponent = () => {
+  return (
+    <div>
+    </div>
+  );
+};
+
+MockComponent.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+};
+
 const MockComponentWrapped = withActiveVideo(MockComponent);
 
 it(`Should change withVideo`, () => {
-  const wrapper = shallow(
+  const wrapper = mount(
       <MockComponentWrapped
         film={mockData}
         onCardClickHandler={() => {}}

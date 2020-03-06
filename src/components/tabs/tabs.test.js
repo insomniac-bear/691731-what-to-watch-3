@@ -39,6 +39,8 @@ it(`Render TabsPage`, () => {
   const tree = renderer
     .create(<Tabs
       filmData={mockData}
+      activeTab={`Overview`}
+      renderTab={() => {}}
     />)
     .toJSON();
 

@@ -17,9 +17,7 @@ const SmallMovieCard = (props) => {
       onMouseLeave={() => onMouseOut()}
       onClick={() => onCardClickHandler(filmData.id)}
     >
-      <div className="small-movie-card__image">
-        {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
-      </div>
+      {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"

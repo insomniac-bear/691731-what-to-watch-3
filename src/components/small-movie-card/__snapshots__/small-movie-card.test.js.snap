@@ -7,9 +7,6 @@ exports[`Render SmallMovieCard 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  <div
-    className="small-movie-card__image"
-  />
   <h3
     className="small-movie-card__title"
   >

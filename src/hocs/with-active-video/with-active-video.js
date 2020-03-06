@@ -1,7 +1,10 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-import VideoPreview from '../../components/video-preview/video-preview.jsx';
+import Preview from '../../components/video-preview/video-preview.jsx';
+import withVideo from '../with-video/with-video.js';
+
+const VideoPreview = withVideo(Preview);
 
 const withActiveVideo = (Component) => {
   class WithActiveVideo extends PureComponent {
