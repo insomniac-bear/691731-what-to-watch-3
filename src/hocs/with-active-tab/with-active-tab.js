@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'React';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 import TabItem from '../../components/tab-item/tab-item.jsx';
