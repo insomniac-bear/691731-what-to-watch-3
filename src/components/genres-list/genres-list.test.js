@@ -106,7 +106,7 @@ it(`Render list of Genres`, () => {
     .create(<GenresList
       films={mockData}
       activeGenre={mockData[0].genre}
-      onChangeGenre={()=>{}}
+      onChangeGenre={jest.mock()}
     />)
     .toJSON();
 

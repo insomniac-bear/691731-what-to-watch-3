@@ -40,7 +40,7 @@ it(`Render MovieList`, () => {
     .create(<MovieList
       genre={`All`}
       films={films}
-      cardClickHandler={() => {}}
+      cardClickHandler={jest.mock()}
     />, {
       createNodeMock: () => {
         return {};

@@ -181,9 +181,9 @@ it(`Render Main`, () => {
       selectedGenre={mockData.films[0].genre}
       currentFilmsCount={mockData.films.length}
       showedFilmsCount={mockData.showedFilmsCount}
-      cardClickHandler={() => {}}
-      onChangeGenre={() => {}}
-      onChangeShowedFilmsCount={() => {}}
+      cardClickHandler={jest.mock()}
+      onChangeGenre={jest.mock()}
+      onChangeShowedFilmsCount={jest.mock()}
     />, {
       createNodeMock: () => {
         return {};

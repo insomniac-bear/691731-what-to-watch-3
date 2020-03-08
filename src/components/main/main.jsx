@@ -6,6 +6,7 @@ import MovieCard from '../movie-card/movie-card.jsx';
 import MoviesList from '../movies-list/movies-list.jsx';
 import GenresList from '../genres-list/genres-list.jsx';
 
+const display = ({isVisible, children}) => isVisible ? children : null;
 
 const Main = (props) => {
   const {
@@ -34,11 +35,14 @@ const Main = (props) => {
           cardClickHandler={cardClickHandler}
         />
 
-        {showedFilmsCount < currentFilmsCount ?
-          <CatalogMoreButton
-            onClickCatalogButton={onChangeShowedFilmsCount}
-          /> :
-          ``}
+        {
+          display(
+              {
+                isVisible: showedFilmsCount < currentFilmsCount,
+                children: <CatalogMoreButton onClickCatalogButton={onChangeShowedFilmsCount}/>
+              }
+          )
+        }
       </section>
       <footer className="page-footer">
         <div className="logo">
