@@ -40,7 +40,7 @@ it(`Render TabsPage`, () => {
     .create(<Tabs
       filmData={mockData}
       activeTab={`Overview`}
-      renderTab={() => {}}
+      renderTab={jest.fn()}
     />)
     .toJSON();
 

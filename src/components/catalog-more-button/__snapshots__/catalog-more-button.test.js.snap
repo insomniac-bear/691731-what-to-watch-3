@@ -6,7 +6,7 @@ exports[`Render CatalogMoreButton 1`] = `
 >
   <button
     className="catalog__button"
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     Show more

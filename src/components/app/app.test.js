@@ -190,9 +190,9 @@ it(`Render App`, ()=> {
         <Provider store={store}>
           <App
             promoFilmData={mockData.promoFilmData}
-            updateFilmId={() => {}}
-            onChangeGenre={() => {}}
-            onChangeShowedFilmsCount={() => {}}
+            updateFilmId={jest.fn()}
+            onChangeGenre={jest.fn()}
+            onChangeShowedFilmsCount={jest.fn()}
           />
         </Provider>, {
           createNodeMock: () => {

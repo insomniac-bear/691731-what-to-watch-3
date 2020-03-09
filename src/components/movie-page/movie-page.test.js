@@ -170,7 +170,7 @@ it(`Render MoviePage`, () => {
     .create(<MoviePage
       filmData={mockData[0]}
       films={mockData}
-      cardClickHandler={jest.mock()}
+      cardClickHandler={jest.fn()}
     />, {
       createNodeMock: () => {
         return {};

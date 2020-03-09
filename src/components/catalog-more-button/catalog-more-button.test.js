@@ -5,7 +5,7 @@ import CatalogMoreButton from './catalog-more-button.jsx';
 it(`Render CatalogMoreButton`, () => {
   const tree = renderer
     .create(<CatalogMoreButton
-      onClickCatalogButton={() => {}}
+      onClickCatalogButton={jest.fn()}
     />)
     .toJSON();
 
