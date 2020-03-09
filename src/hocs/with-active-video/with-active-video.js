@@ -15,6 +15,7 @@ const withActiveVideo = (Component) => {
       };
       this._onHover = this._onHover.bind(this);
       this._onMouseOut = this._onMouseOut.bind(this);
+      this._renderVideoPreview = this._renderVideoPreview.bind(this);
     }
 
     _onHover() {
@@ -29,21 +30,30 @@ const withActiveVideo = (Component) => {
       this.setState({isPlaying: false});
     }
 
+    _renderVideoPreview(filmPreview, posterUrl) {
+      return (
+        <VideoPreview
+          isPlaying={this.state.isPlaying}
+          filmPreview={filmPreview}
+          posterUrl={posterUrl}
+        />
+      );
+    }
+
     render() {
       return <Component
         {...this.props}
         onHover={this._onHover}
         onMouseOut={this._onMouseOut}
-        renderVideoPreview={(filmPreview, posterUrl) => {
-          return (
-            <VideoPreview
-              isPlaying={this.state.isPlaying}
-              filmPreview={filmPreview}
-              posterUrl={posterUrl}
-            />
-          );
-        }}
+        renderVideoPreview={this._renderVideoPreview}
       />;
+    }
+
+    componentWillUnmount() {
+      this._onHover = null;
+      this._onMouseOut = null;
+      this._renderVideoPreview = null;
+      this.timerId = clearTimeout();
     }
   }
 

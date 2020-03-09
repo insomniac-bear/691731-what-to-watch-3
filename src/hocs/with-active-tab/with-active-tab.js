@@ -13,6 +13,7 @@ const withActiveTab = (Component) => {
       };
 
       this._onChangeActiveTab = this._onChangeActiveTab. bind(this);
+      this._renderTab = this._renderTab.bind(this);
     }
 
     _onChangeActiveTab(newTab) {
@@ -21,20 +22,29 @@ const withActiveTab = (Component) => {
       });
     }
 
+    _renderTab(tabName, index) {
+      return (
+        <TabItem
+          key={`${tabName}-${index}`}
+          tabName={tabName}
+          activeTab={this.state.activeTab}
+          tabChangeHandler={this._onChangeActiveTab}
+        />
+      );
+    }
+
+    componentWillUnmount() {
+      this._renderTab = null;
+      this.setState({
+        activeTab: `Overview`,
+      });
+    }
+
     render() {
       return <Component
         {...this.props}
         activeTab={this.state.activeTab}
-        renderTab={(tabName, index) => {
-          return (
-            <TabItem
-              key={`${tabName}-${index}`}
-              tabName={tabName}
-              activeTab={this.state.activeTab}
-              tabChangeHandler={this._onChangeActiveTab}
-            />
-          );
-        }}
+        renderTab={this._renderTab}
       />;
     }
   }
