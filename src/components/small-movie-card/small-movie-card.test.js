@@ -17,7 +17,7 @@ it(`Render SmallMovieCard`, () => {
       onHover={jest.mock()}
       onMouseOut={jest.mock()}
       onCardClickHandler={jest.mock()}
-      renderVideoPreview={jest.mock()}
+      renderVideoPreview={() => {}}
     />, {
       createNodeMock: () => {
         return {};
