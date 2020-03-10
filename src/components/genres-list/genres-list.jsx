@@ -15,7 +15,7 @@ const getUniqueGenre = (filmsList) => {
 };
 
 const GenresList = (props) => {
-  const {films, activeGenre, onChangeGenre} = props;
+  const {films, selectedGenre, onChangeGenre} = props;
   const genres = getUniqueGenre(films);
 
   return <React.Fragment>
@@ -24,7 +24,7 @@ const GenresList = (props) => {
         return (
           <li
             key={`${genre}-${i}`}
-            className={genre === activeGenre ?
+            className={genre === selectedGenre ?
               `catalog__genres-item catalog__genres-item--active` :
               `catalog__genres-item`} >
             <a
@@ -46,7 +46,7 @@ const GenresList = (props) => {
 
 GenresList.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  activeGenre: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   onChangeGenre: PropTypes.func.isRequired,
 };
 

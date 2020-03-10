@@ -17,7 +17,7 @@ const SmallMovieCard = (props) => {
       onMouseLeave={() => onMouseOut()}
       onClick={() => onCardClickHandler(filmData.id)}
     >
-      {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
+      {renderVideoPreview(filmData.filmPreview, filmData.previewImage)}
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"
@@ -27,7 +27,7 @@ const SmallMovieCard = (props) => {
             onCardClickHandler(filmData.id);
           }}
         >
-          {filmData.filmName}
+          {filmData.name}
         </a>
       </h3>
     </article>
@@ -37,8 +37,8 @@ const SmallMovieCard = (props) => {
 SmallMovieCard.propTypes = {
   filmData: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    filmName: PropTypes.string.isRequired,
-    posterUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    previewImage: PropTypes.string.isRequired,
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
   onHover: PropTypes.func.isRequired,

@@ -9,7 +9,7 @@ const MovieCard = (props) => {
   return <React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+        <img src={promoFilmData.backgroundImage} alt={promoFilmData.filmName} />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -19,14 +19,14 @@ const MovieCard = (props) => {
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+            <img src={promoFilmData.posterImage} alt={promoFilmData.filmName} width="218" height="327" />
           </div>
 
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{promoFilmData.filmName}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{promoFilmData.genre}</span>
-              <span className="movie-card__year">{promoFilmData.releaseDate}</span>
+              <span className="movie-card__year">{promoFilmData.release}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -51,11 +51,7 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
-  promoFilmData: PropTypes.shape({
-    filmName: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.number.isRequired,
-  }).isRequired,
+  promoFilmData: PropTypes.shape().isRequired,
 };
 
 export default MovieCard;

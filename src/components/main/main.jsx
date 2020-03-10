@@ -12,6 +12,7 @@ const Main = (props) => {
   const {
     promoFilmData,
     films,
+    allFilms,
     selectedGenre,
     currentFilmsCount,
     showedFilmsCount,
@@ -21,13 +22,13 @@ const Main = (props) => {
   } = props;
 
   return <React.Fragment>
-    <MovieCard promoFilmData={promoFilmData}/>
+    <MovieCard promoFilmData={promoFilmData} />
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <GenresList
-          films={films}
-          activeGenre={selectedGenre}
+          films={allFilms}
+          selectedGenre={selectedGenre}
           onChangeGenre={onChangeGenre}
         />
         <MoviesList
@@ -61,16 +62,13 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  promoFilmData: PropTypes.shape({
-    filmName: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.number.isRequired,
-  }).isRequired,
+  promoFilmData: PropTypes.shape().isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     filmName: PropTypes.string.isRequired,
-    posterUrl: PropTypes.string.isRequired,
+    previewImage: PropTypes.string.isRequired,
   })).isRequired,
+  allFilms: PropTypes.array,
   selectedGenre: PropTypes.string.isRequired,
   showedFilmsCount: PropTypes.number.isRequired,
   currentFilmsCount: PropTypes.number.isRequired,

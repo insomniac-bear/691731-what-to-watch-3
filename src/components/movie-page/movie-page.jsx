@@ -13,10 +13,10 @@ const MoviePage = (props) => {
   const {filmData, films, cardClickHandler} = props;
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section className="movie-card movie-card--full" style={{background: filmData.backgroundColor}}>
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={filmData.posterImage} alt={filmData.filmName} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -53,10 +53,12 @@ const MoviePage = (props) => {
         <div className="movie-card__wrap  movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster  movie-card__poster--big">
-              <img src={filmData.posterUrl} alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={filmData.backgroundImage} alt={filmData.filmName} width="218" height="327" />
             </div>
 
-            <TabsWrapped filmData={filmData}/>
+            <TabsWrapped
+              filmData={filmData}
+            />
 
           </div>
         </div>

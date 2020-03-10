@@ -2,7 +2,12 @@ import React, {PureComponent} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer.js';
+import {ActionCreator} from '../../reducer/genre/genre.js';
+import {AuthorizationStatus} from '../../reducer/user/user.js';
+import {getSelectedGenre, getFilmId, getShowedFilmsCount} from '../../reducer/genre/selectors.js';
+import {getAllFilms, getFilmsByGenre, getPromoFilm, getCommentsToFilm} from '../../reducer/data/selectors.js';
+import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
+import {Operation as UserOperation} from '../../reducer/user/user.js';
 
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
@@ -18,13 +23,15 @@ class App extends PureComponent {
       updateFilmId,
       onChangeGenre,
       showedFilmsCount,
-      onChangeShowedFilmsCount
+      onChangeShowedFilmsCount,
+      commentsList,
     } = this.props;
 
     if (filmId < 0) {
       return (
         <Main
           promoFilmData={promoFilmData}
+          allFilms={allFilms}
           films={currentFilms.slice(0, showedFilmsCount)}
           selectedGenre={selectedGenre}
           cardClickHandler={updateFilmId}
@@ -37,7 +44,7 @@ class App extends PureComponent {
     } else {
       return (
         <MoviePage
-          filmData={allFilms[filmId]}
+          filmData={currentFilms.find((film) => film.id === filmId)}
           films={currentFilms.slice(0, showedFilmsCount)}
           cardClickHandler={updateFilmId}
         />
@@ -61,11 +68,7 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  promoFilmData: PropTypes.shape({
-    filmName: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.number.isRequired,
-  }).isRequired,
+  promoFilmData: PropTypes.shape().isRequired,
   currentFilms: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.isRequired,
     filmName: PropTypes.string,
@@ -77,8 +80,7 @@ App.propTypes = {
     rating: PropTypes.number,
     describe: PropTypes.string,
     director: PropTypes.string,
-    actors: PropTypes.string,
-    comments: PropTypes.array,
+    actors: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   filmId: PropTypes.number.isRequired,
   allFilms: PropTypes.arrayOf(PropTypes.shape()).isRequired,
@@ -90,11 +92,12 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  selectedGenre: state.selectedGenre,
-  allFilms: state.allFilms,
-  currentFilms: state.currentFilms,
-  filmId: state.filmId,
-  showedFilmsCount: state.showedFilmsCount,
+  selectedGenre: getSelectedGenre(state),
+  allFilms: getAllFilms(state),
+  promoFilmData: getPromoFilm(state),
+  currentFilms: getFilmsByGenre(state),
+  filmId: getFilmId(state),
+  showedFilmsCount: getShowedFilmsCount(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

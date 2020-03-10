@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Details = (props) => {
   const {filmData} = props;
-  const starring = filmData.actors.split(`,`);
 
   return <React.Fragment>
     <div className="movie-card__text movie-card__row">
@@ -15,7 +14,7 @@ const Details = (props) => {
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
           <span className="movie-card__details-value">
-            {starring.map((actor) => {
+            {filmData.actors.map((actor) => {
               return actor;
             })}
           </span>
@@ -42,7 +41,7 @@ const Details = (props) => {
 
 Details.propTypes = {
   filmData: PropTypes.shape({
-    actors: PropTypes.string,
+    actors: PropTypes.arrayOf(PropTypes.string),
     director: PropTypes.string,
     runtime: PropTypes.number,
     genre: PropTypes.string,
