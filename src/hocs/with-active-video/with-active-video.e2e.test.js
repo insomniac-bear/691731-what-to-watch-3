@@ -1,7 +1,8 @@
-import React from "react";
-import Enzyme, {shallow} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import withVideoPreview from "./with-video-preview.js";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import withActiveVideo from './with-active-video.js';
 
 const mockData = {
   id: `id-0`,
@@ -28,22 +29,38 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-const MockComponent = () => <div />;
-const MockComponentWrapped = withVideoPreview(MockComponent);
+const MockComponent = (props) => {
+  const {children} = props;
+  return (
+    <div>
+      {children}
+    </div>
+  );
+};
+
+MockComponent.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+};
+
+const MockComponentWrapped = withActiveVideo(MockComponent);
 
 it(`Should change withVideo`, () => {
-  const wrapper = shallow(
+  const wrapper = mount(
       <MockComponentWrapped
         film={mockData}
         onCardClickHandler={() => {}}
-        onHoverHandler={() => {}}
+        onHover={() => {}}
+        onMouseOut={() => {}}
       />);
 
-  wrapper.instance()._onHoverHandler(mockData);
+  wrapper.instance()._onHover(mockData);
   setTimeout(() => {
     expect(wrapper.state().isPlaying).toEqual(true);
   }, 1000);
 
-  wrapper.instance()._onHoverHandler();
+  wrapper.instance()._onHover();
   expect(wrapper.state().isPlaying).toEqual(false);
 });

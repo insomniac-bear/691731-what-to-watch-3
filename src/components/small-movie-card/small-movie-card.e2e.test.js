@@ -19,7 +19,7 @@ const mockData = {
 
 const mockHover = {
   updateState() {
-    return mockData;
+    return true;
   }
 };
 
@@ -32,12 +32,14 @@ const mockClick = {
 it(`Hover on small card film should pass to the callback data-object from film which hovered, click on card or title return id film`, () => {
 
   const onHoverHandler = jest.fn();
+  const onMouseOutHandler = jest.fn();
   const onCardClickHandler = jest.fn();
 
   const smallMovieCardWrapper = shallow(
       <SmallMovieCard
         filmData={mockData}
-        onHoverHandler={onHoverHandler}
+        onHover={onHoverHandler}
+        onMouseOut={onMouseOutHandler}
         onCardClickHandler={onCardClickHandler}
         renderVideoPreview={() => {}}
       />
@@ -45,13 +47,12 @@ it(`Hover on small card film should pass to the callback data-object from film w
 
   smallMovieCardWrapper.simulate(`mouseenter`, mockHover);
 
+  expect(onHoverHandler).toHaveBeenCalledTimes(1);
+
   const title = smallMovieCardWrapper.find(`.small-movie-card__link`);
   const id = mockData.id;
-
   smallMovieCardWrapper.simulate(`click`, mockClick);
   title.simulate(`click`, mockClick);
-
-  expect(onHoverHandler).toHaveBeenCalledTimes(1);
 
   expect(onCardClickHandler.mock.calls[0][0]).toBe(id);
   expect(onCardClickHandler.mock.calls[1][0]).toBe(id);

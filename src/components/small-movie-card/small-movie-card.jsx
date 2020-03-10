@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const SmallMovieCard = (props) => {
   const {
     filmData,
-    onHoverHandler,
+    onHover,
+    onMouseOut,
     onCardClickHandler,
     renderVideoPreview
   } = props;
@@ -12,13 +13,11 @@ const SmallMovieCard = (props) => {
   return (
     <article
       className="small-movie-card catalog__movies-card"
-      onMouseEnter={() => onHoverHandler()}
-      onMouseLeave={() => onHoverHandler()}
+      onMouseEnter={() => onHover()}
+      onMouseLeave={() => onMouseOut()}
       onClick={() => onCardClickHandler(filmData.id)}
     >
-      <div className="small-movie-card__image">
-        {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
-      </div>
+      {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"
@@ -42,7 +41,8 @@ SmallMovieCard.propTypes = {
     posterUrl: PropTypes.string.isRequired,
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
-  onHoverHandler: PropTypes.func.isRequired,
+  onHover: PropTypes.func.isRequired,
+  onMouseOut: PropTypes.func.isRequired,
   onCardClickHandler: PropTypes.func.isRequired,
   renderVideoPreview: PropTypes.func.isRequired,
 };

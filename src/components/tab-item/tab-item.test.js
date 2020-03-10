@@ -12,7 +12,7 @@ it(`Render Tab item`, () => {
     .create(<TabItem
       tabName={mockData.tabName}
       activeTab={mockData.activeTab}
-      tabChangeHandler={()=>{}}
+      tabChangeHandler={jest.fn()}
     />)
     .toJSON();
 

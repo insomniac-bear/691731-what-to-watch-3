@@ -13,10 +13,11 @@ it(`Render SmallMovieCard`, () => {
   const tree = renderer
     .create(<SmallMovieCard
       filmData={mockFilmData}
-      hoveredElement={() => {}}
-      onHoverHandler={() => {}}
-      onCardClickHandler={() => {}}
-      renderVideoPreview={()=>{}}
+      hoveredElement={jest.fn()}
+      onHover={jest.fn()}
+      onMouseOut={jest.fn()}
+      onCardClickHandler={jest.fn()}
+      renderVideoPreview={jest.fn()}
     />, {
       createNodeMock: () => {
         return {};

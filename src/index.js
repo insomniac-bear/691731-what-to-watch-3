@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 
 import App from './components/app/app.jsx';
 
-import films from './mocks/films.js';
+// import films from './mocks/films.js';
 import {reducer} from './reducer.js';
 
 const promoFilmData = {
@@ -23,7 +23,7 @@ ReactDOM.render(
     <Provider store={store}>
       <App
         promoFilmData={promoFilmData}
-        films={films}
+        // films={films}
       />
     </Provider>,
     document.querySelector(`#root`)
