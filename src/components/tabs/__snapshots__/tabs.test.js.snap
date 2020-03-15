@@ -17,7 +17,7 @@ exports[`Render TabsPage 1`] = `
     <div
       className="movie-rating__score"
     >
-      9.9
+      99
     </div>
     <p
       className="movie-rating__meta"
@@ -25,7 +25,7 @@ exports[`Render TabsPage 1`] = `
       <span
         className="movie-rating__level"
       >
-        Very good
+        Avesome
       </span>
       <span
         className="movie-rating__count"
@@ -38,7 +38,7 @@ exports[`Render TabsPage 1`] = `
     className="movie-card__text"
   >
     <p>
-      Some discribe
+      Some description
     </p>
     <p
       className="movie-card__director"
@@ -53,7 +53,7 @@ exports[`Render TabsPage 1`] = `
     >
       <strong>
         Starring: 
-        Actor, Actor, Actor
+        Actor Actor
       </strong>
     </p>
   </div>

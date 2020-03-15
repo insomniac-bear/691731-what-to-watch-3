@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PageHeader from '../page-header/page-header.jsx';
+import {getPromoFilm} from '../../reducer/data/selectors.js';
 
 const MovieCard = (props) => {
   const {promoFilmData} = props;
@@ -54,4 +56,9 @@ MovieCard.propTypes = {
   promoFilmData: PropTypes.shape().isRequired,
 };
 
-export default MovieCard;
+const mapStateToProps = (state) => ({
+  promoFilmData: getPromoFilm(state),
+});
+
+export {MovieCard};
+export default connect(mapStateToProps)(MovieCard);

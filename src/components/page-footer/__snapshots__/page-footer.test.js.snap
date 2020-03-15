@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render page header 1`] = `
-<header
-  className="page-header movie-card__head"
+exports[`Render PageFooter 1`] = `
+<footer
+  className="page-footer"
 >
   <div
     className="logo"
   >
     <a
-      className="logo__link"
+      className="logo__link logo__link--light"
     >
       <span
         className="logo__letter logo__letter--1"
@@ -28,14 +28,11 @@ exports[`Render page header 1`] = `
     </a>
   </div>
   <div
-    className="user-block"
+    className="copyright"
   >
-    <a
-      className="user-block__link"
-      href="sign-in.html"
-    >
-      Sign in
-    </a>
+    <p>
+      © 2019 What to watch Ltd.
+    </p>
   </div>
-</header>
+</footer>
 `;

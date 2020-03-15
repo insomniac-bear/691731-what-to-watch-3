@@ -4,7 +4,7 @@ import {reducer, ActionType, Operation} from './data.js';
 
 const api = createAPI(() => {});
 
-const films = [
+const allFilms = [
   {
     id: 0,
     filmName: `Name-0`,
@@ -169,18 +169,20 @@ const films = [
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
-    films: [],
+    allFilms: [],
+    commentsToFilm: [],
+    promoFilm: {},
   });
 });
 
 it(`Reducer should update films by load films`, () => {
   expect(reducer({
-    films: [],
+    allFilms: [],
   }, {
     type: ActionType.LOAD_FILMS,
-    payload: films,
+    payload: allFilms,
   })).toEqual({
-    films,
+    allFilms,
   });
 });
 

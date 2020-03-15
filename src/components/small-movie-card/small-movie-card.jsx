@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+
+import {Operation as DataOperation} from '../../reducer/data/data.js';
+import {ActionCreator} from '../../reducer/genre/genre.js';
 
 const SmallMovieCard = (props) => {
   const {
     filmData,
     onHover,
     onMouseOut,
-    onCardClickHandler,
-    renderVideoPreview
+    renderVideoPreview,
+    loadComments,
+    updateFilmId,
   } = props;
 
   return (
@@ -15,7 +20,10 @@ const SmallMovieCard = (props) => {
       className="small-movie-card catalog__movies-card"
       onMouseEnter={() => onHover()}
       onMouseLeave={() => onMouseOut()}
-      onClick={() => onCardClickHandler(filmData.id)}
+      onClick={() => {
+        loadComments(filmData.id);
+        updateFilmId(filmData.id);
+      }}
     >
       {renderVideoPreview(filmData.filmPreview, filmData.previewImage)}
       <h3 className="small-movie-card__title">
@@ -24,7 +32,8 @@ const SmallMovieCard = (props) => {
           href="movie-page.html"
           onClick={(evt) => {
             evt.preventDefault();
-            onCardClickHandler(filmData.id);
+            loadComments(filmData.id);
+            updateFilmId(filmData.id);
           }}
         >
           {filmData.name}
@@ -41,10 +50,24 @@ SmallMovieCard.propTypes = {
     previewImage: PropTypes.string.isRequired,
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
+  loadComments: PropTypes.func.isRequired,
   onHover: PropTypes.func.isRequired,
   onMouseOut: PropTypes.func.isRequired,
-  onCardClickHandler: PropTypes.func.isRequired,
   renderVideoPreview: PropTypes.func.isRequired,
+  updateFilmId: PropTypes.func.isRequired,
 };
 
-export default SmallMovieCard;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateFilmId(id) {
+    dispatch(ActionCreator.updateFilmId(id));
+  },
+
+  loadComments(id) {
+    dispatch(DataOperation.loadComments(id));
+  },
+});
+
+export {SmallMovieCard};
+export default connect(mapStateToProps, mapDispatchToProps)(SmallMovieCard);

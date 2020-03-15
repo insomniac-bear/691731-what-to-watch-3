@@ -19,7 +19,6 @@ const withActiveVideo = (Component) => {
     }
 
     _onHover() {
-      clearTimeout(this.timerId);
       this.timerId = setTimeout(() => {
         this.setState({isPlaying: true});
       }, 1000);
@@ -53,7 +52,6 @@ const withActiveVideo = (Component) => {
       this._onHover = null;
       this._onMouseOut = null;
       this._renderVideoPreview = null;
-      clearTimeout(this.timerId);
     }
   }
 

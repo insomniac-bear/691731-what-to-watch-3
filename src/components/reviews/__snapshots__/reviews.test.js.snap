@@ -30,40 +30,7 @@ exports[`Render Reviews tab 1`] = `
             className="review__date"
             dateTime="January 01, 2001"
           >
-            undefined undefined, January 01, 2001
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        9.9
-      </div>
-    </div>
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Some comment
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Author name
-          </cite>
-          <time
-            className="review__date"
-            dateTime="January 01, 2001"
-          >
-            undefined undefined, January 01, 2001
+            January 01, 2001
           </time>
         </footer>
       </blockquote>
@@ -76,40 +43,6 @@ exports[`Render Reviews tab 1`] = `
   </div>
   <div
     className="movie-card__reviews-col"
-  >
-    <div
-      className="review"
-    >
-      <blockquote
-        className="review__quote"
-      >
-        <p
-          className="review__text"
-        >
-          Some comment
-        </p>
-        <footer
-          className="review__details"
-        >
-          <cite
-            className="review__author"
-          >
-            Author name
-          </cite>
-          <time
-            className="review__date"
-            dateTime="January 01, 2001"
-          >
-            undefined undefined, January 01, 2001
-          </time>
-        </footer>
-      </blockquote>
-      <div
-        className="review__rating"
-      >
-        9.9
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;

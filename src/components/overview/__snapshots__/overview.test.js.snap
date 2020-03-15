@@ -8,7 +8,7 @@ Array [
     <div
       className="movie-rating__score"
     >
-      9.9
+      99
     </div>
     <p
       className="movie-rating__meta"
@@ -16,7 +16,7 @@ Array [
       <span
         className="movie-rating__level"
       >
-        Very good
+        Avesome
       </span>
       <span
         className="movie-rating__count"
@@ -29,7 +29,7 @@ Array [
     className="movie-card__text"
   >
     <p>
-      Some discribe
+      Some description
     </p>
     <p
       className="movie-card__director"
@@ -44,7 +44,7 @@ Array [
     >
       <strong>
         Starring: 
-        Actor, Actor, Actor
+        Actor Actor
       </strong>
     </p>
   </div>,

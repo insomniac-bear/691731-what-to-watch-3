@@ -9,7 +9,7 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genre}"
+      href="All genres"
       onClick={[Function]}
     >
       All genres
@@ -20,32 +20,10 @@ exports[`Render list of Genres 1`] = `
   >
     <a
       className="catalog__genres-link"
-      href="{genre}"
+      href="Some genre"
       onClick={[Function]}
     >
-      genre-0
-    </a>
-  </li>
-  <li
-    className="catalog__genres-item"
-  >
-    <a
-      className="catalog__genres-link"
-      href="{genre}"
-      onClick={[Function]}
-    >
-      genre-1
-    </a>
-  </li>
-  <li
-    className="catalog__genres-item"
-  >
-    <a
-      className="catalog__genres-link"
-      href="{genre}"
-      onClick={[Function]}
-    >
-      genre-2
+      Some genre
     </a>
   </li>
 </ul>

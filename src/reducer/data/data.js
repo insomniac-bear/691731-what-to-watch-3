@@ -50,10 +50,15 @@ const Operation = {
   },
 
   loadComments: (filmId) => (dispatch, getState, api) => {
-    return api.get(`/comments/${filmId}`)
+    return (
+      api.get(`/comments/${filmId}`)
       .then((response) => {
         dispatch(ActionCreator.loadComments(response.data));
-      });
+      })
+      .catch((err) => {
+        throw err;
+      })
+    );
   }
 };
 

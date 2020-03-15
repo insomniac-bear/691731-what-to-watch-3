@@ -1,113 +1,93 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
+import NameSpace from '../../reducer/name-space.js';
 import GenresList from './genres-list.jsx';
+
+const mockStore = configureStore([]);
 
 const mockData = [
   {
     id: 0,
-    filmName: `Name-0`,
-    posterUrl: `img/bohemian-rhapsody.jpg`,
-    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genre: `genre-0`,
-    release: 0,
-    rating: 0,
-    describe: `describe-0`,
-    director: `director-0`,
-    actors: `actors-0`,
-    comments: [
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-    ],
+    filmName: `Some name`,
+    posterImage: `Some url`,
+    previewImage: `Some url`,
+    backgroundImage: `Some url`,
+    backgroundColor: `#000000`,
+    filmSrc: `Some url`,
+    filmPreview: `Some url`,
+    genre: `Some genre`,
+    release: 1999,
+    runtime: 99,
+    rating: 99,
+    scoresCount: 99,
+    describe: `Some description`,
+    director: `Director`,
+    actors: [`Actor`, `Actor`],
+    isFavorite: false,
   },
   {
     id: 1,
-    filmName: `Name-1`,
-    posterUrl: `img/bohemian-rhapsody.jpg`,
-    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genre: `genre-1`,
-    release: 0,
-    rating: 0,
-    describe: `describe-1`,
-    director: `director-1`,
-    actors: `actors-1`,
-    comments: [
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-    ],
+    filmName: `Some name`,
+    posterImage: `Some url`,
+    previewImage: `Some url`,
+    backgroundImage: `Some url`,
+    backgroundColor: `#000000`,
+    filmSrc: `Some url`,
+    filmPreview: `Some url`,
+    genre: `Some genre`,
+    release: 1999,
+    runtime: 99,
+    rating: 99,
+    scoresCount: 99,
+    describe: `Some description`,
+    director: `Director`,
+    actors: [`Actor`, `Actor`],
+    isFavorite: false,
   },
   {
     id: 2,
-    filmName: `Name-2`,
-    posterUrl: `img/bohemian-rhapsody.jpg`,
-    filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
-    genre: `genre-2`,
-    release: 0,
-    rating: 0,
-    describe: `describe-2`,
-    director: `director-2`,
-    actors: `actors-2`,
-    comments: [
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-      {
-        author: `author-0`,
-        rating: 0,
-        date: `0000-01-01`,
-        textComment: `Some comment`,
-      },
-    ]
+    filmName: `Some name`,
+    posterImage: `Some url`,
+    previewImage: `Some url`,
+    backgroundImage: `Some url`,
+    backgroundColor: `#000000`,
+    filmSrc: `Some url`,
+    filmPreview: `Some url`,
+    genre: `Some genre`,
+    release: 1999,
+    runtime: 99,
+    rating: 99,
+    scoresCount: 99,
+    describe: `Some description`,
+    director: `Director`,
+    actors: [`Actor`, `Actor`],
+    isFavorite: false,
   }
 ];
 
 it(`Render list of Genres`, () => {
+  const store = mockStore({
+    [NameSpace.DATA]: {
+      allFilms: mockData,
+    },
+    [NameSpace.GENRE]: {
+      selectedGenre: mockData[0].genre,
+    }
+  });
   const tree = renderer
-    .create(<GenresList
-      films={mockData}
-      activeGenre={mockData[0].genre}
-      onChangeGenre={jest.fn()}
-    />)
+    .create(
+        <Provider store={store}>
+          <GenresList
+            onChangeGenre={jest.fn()}
+          />
+        </Provider>, {
+          createNodeMock: () => {
+            return {};
+          }
+        }
+    )
     .toJSON();
 
   expect(tree).toMatchSnapshot();

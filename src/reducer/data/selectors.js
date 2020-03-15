@@ -15,7 +15,7 @@ const getGenre = (state) => {
 };
 
 export const getCommentsToFilm = (state) => {
-  return state[NameSpace.GENRE].commentsToFilm;
+  return state[NameSpace.DATA].commentsToFilm;
 };
 
 export const getFilmsByGenre = createSelector(

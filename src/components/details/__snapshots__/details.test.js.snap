@@ -33,8 +33,7 @@ exports[`Render Details tab 1`] = `
         className="movie-card__details-value"
       >
         Actor
-         Actor
-         Actor
+        Actor
       </span>
     </p>
   </div>
@@ -69,7 +68,7 @@ exports[`Render Details tab 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Genre
+        Some genre
       </span>
     </p>
     <p
@@ -83,7 +82,7 @@ exports[`Render Details tab 1`] = `
       <span
         className="movie-card__details-value"
       >
-        2018
+        1999
       </span>
     </p>
   </div>
