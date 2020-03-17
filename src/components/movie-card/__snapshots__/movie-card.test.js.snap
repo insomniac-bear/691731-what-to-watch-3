@@ -9,7 +9,7 @@ exports[`Render MovieCard 1`] = `
   >
     <img
       alt="Some name"
-      src="Some url"
+      src="http://sume.url"
     />
   </div>
   <h1

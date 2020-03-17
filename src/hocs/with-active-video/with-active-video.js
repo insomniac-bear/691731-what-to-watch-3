@@ -49,6 +49,7 @@ const withActiveVideo = (Component) => {
     }
 
     componentWillUnmount() {
+      clearTimeout(this.timerId);
       this._onHover = null;
       this._onMouseOut = null;
       this._renderVideoPreview = null;

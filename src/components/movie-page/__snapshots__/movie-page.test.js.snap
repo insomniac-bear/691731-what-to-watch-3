@@ -4,6 +4,11 @@ exports[`Render MoviePage 1`] = `
 Array [
   <section
     className="movie-card movie-card--full"
+    style={
+      Object {
+        "background": "#000000",
+      }
+    }
   >
     <div
       className="movie-card__hero"
@@ -12,8 +17,8 @@ Array [
         className="movie-card__bg"
       >
         <img
-          alt="The Grand Budapest Hotel"
-          src="img/bg-the-grand-budapest-hotel.jpg"
+          alt="Some name"
+          src="Some url"
         />
       </div>
       <h1
@@ -50,16 +55,12 @@ Array [
         <div
           className="user-block"
         >
-          <div
-            className="user-block__avatar"
+          <a
+            className="user-block__link"
+            href="sign-in.html"
           >
-            <img
-              alt="User avatar"
-              height="63"
-              src="img/avatar.jpg"
-              width="63"
-            />
-          </div>
+            Sign in
+          </a>
         </div>
       </header>
       <div
@@ -71,7 +72,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Name-0
+            Some name
           </h2>
           <p
             className="movie-card__meta"
@@ -79,12 +80,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              genre-0
+              Some genre
             </span>
             <span
               className="movie-card__year"
             >
-              0
+              1999
             </span>
           </p>
           <div
@@ -144,9 +145,9 @@ Array [
           className="movie-card__poster  movie-card__poster--big"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Some name"
             height="327"
-            src="img/bohemian-rhapsody.jpg"
+            src="http://sume.url"
             width="218"
           />
         </div>
@@ -200,7 +201,7 @@ Array [
             <div
               className="movie-rating__score"
             >
-              0
+              99
             </div>
             <p
               className="movie-rating__meta"
@@ -208,7 +209,7 @@ Array [
               <span
                 className="movie-rating__level"
               >
-                Bad
+                Avesome
               </span>
               <span
                 className="movie-rating__count"
@@ -221,14 +222,14 @@ Array [
             className="movie-card__text"
           >
             <p>
-              describe-0
+              Some description
             </p>
             <p
               className="movie-card__director"
             >
               <strong>
                 Director: 
-                director-0
+                Director
               </strong>
             </p>
             <p
@@ -236,7 +237,7 @@ Array [
             >
               <strong>
                 Starring: 
-                actors-0
+                Actor Actor
               </strong>
             </p>
           </div>
@@ -269,8 +270,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -282,7 +283,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-0
+              Some name
             </a>
           </h3>
         </article>
@@ -297,8 +298,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -310,7 +311,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-1
+              Some name
             </a>
           </h3>
         </article>
@@ -325,8 +326,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -338,7 +339,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-2
+              Some name
             </a>
           </h3>
         </article>
@@ -353,8 +354,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -366,35 +367,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-3
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              Name-4
+              Some name
             </a>
           </h3>
         </article>
@@ -407,8 +380,7 @@ Array [
         className="logo"
       >
         <a
-          className="logo__link   logo__link--light"
-          href="main.html"
+          className="logo__link logo__link--light"
         >
           <span
             className="logo__letter logo__letter--1"

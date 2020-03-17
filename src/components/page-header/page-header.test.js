@@ -8,13 +8,9 @@ import PageHeader from './page-header.jsx';
 
 const mockStore = configureStore([]);
 
-const mockData = {
-  authorizationStatus: AuthorizationStatus.NO_AUTH,
-};
-
 it(`Render page header`, () => {
   const store = mockStore({
-    [NameSpace.USER]: mockData.authorizationStatus,
+    [NameSpace.USER]: AuthorizationStatus.NO_AUTH,
   });
   const tree = renderer
     .create(

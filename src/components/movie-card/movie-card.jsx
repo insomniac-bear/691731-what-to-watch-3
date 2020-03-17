@@ -6,12 +6,12 @@ import PageHeader from '../page-header/page-header.jsx';
 import {getPromoFilm} from '../../reducer/data/selectors.js';
 
 const MovieCard = (props) => {
-  const {promoFilmData} = props;
+  const {promoFilm} = props;
 
   return <React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
-        <img src={promoFilmData.backgroundImage} alt={promoFilmData.filmName} />
+        <img src={promoFilm.backgroundImage} alt={promoFilm.filmName} />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -21,14 +21,14 @@ const MovieCard = (props) => {
       <div className="movie-card__wrap">
         <div className="movie-card__info">
           <div className="movie-card__poster">
-            <img src={promoFilmData.posterImage} alt={promoFilmData.filmName} width="218" height="327" />
+            <img src={promoFilm.posterImage} alt={promoFilm.filmName} width="218" height="327" />
           </div>
 
           <div className="movie-card__desc">
-            <h2 className="movie-card__title">{promoFilmData.filmName}</h2>
+            <h2 className="movie-card__title">{promoFilm.filmName}</h2>
             <p className="movie-card__meta">
-              <span className="movie-card__genre">{promoFilmData.genre}</span>
-              <span className="movie-card__year">{promoFilmData.release}</span>
+              <span className="movie-card__genre">{promoFilm.genre}</span>
+              <span className="movie-card__year">{promoFilm.release}</span>
             </p>
 
             <div className="movie-card__buttons">
@@ -53,11 +53,11 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
-  promoFilmData: PropTypes.shape().isRequired,
+  promoFilm: PropTypes.shape().isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  promoFilmData: getPromoFilm(state),
+  promoFilm: getPromoFilm(state),
 });
 
 export {MovieCard};

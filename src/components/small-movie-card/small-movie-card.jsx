@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-
-import {Operation as DataOperation} from '../../reducer/data/data.js';
-import {ActionCreator} from '../../reducer/genre/genre.js';
 
 const SmallMovieCard = (props) => {
   const {
@@ -36,7 +32,7 @@ const SmallMovieCard = (props) => {
             updateFilmId(filmData.id);
           }}
         >
-          {filmData.name}
+          {filmData.filmName}
         </a>
       </h3>
     </article>
@@ -46,7 +42,7 @@ const SmallMovieCard = (props) => {
 SmallMovieCard.propTypes = {
   filmData: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
+    filmName: PropTypes.string.isRequired,
     previewImage: PropTypes.string.isRequired,
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
@@ -57,17 +53,4 @@ SmallMovieCard.propTypes = {
   updateFilmId: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = (dispatch) => ({
-  updateFilmId(id) {
-    dispatch(ActionCreator.updateFilmId(id));
-  },
-
-  loadComments(id) {
-    dispatch(DataOperation.loadComments(id));
-  },
-});
-
-export {SmallMovieCard};
-export default connect(mapStateToProps, mapDispatchToProps)(SmallMovieCard);
+export default SmallMovieCard;

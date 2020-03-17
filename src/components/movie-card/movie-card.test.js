@@ -5,33 +5,14 @@ import configureStore from 'redux-mock-store';
 import NameSpace from '../../reducer/name-space.js';
 import MovieCard from './movie-card.jsx';
 import {AuthorizationStatus} from '../../const.js';
+import {mockData} from '../../mock-data.js';
 
 const mockStore = configureStore([]);
-
-const promoFilmData = {
-  id: 1,
-  filmName: `Some name`,
-  posterImage: `Some url`,
-  previewImage: `Some url`,
-  backgroundImage: `Some url`,
-  backgroundColor: `#000000`,
-  filmSrc: `Some url`,
-  filmPreview: `Some url`,
-  genre: `Some genre`,
-  release: 1999,
-  runtime: 99,
-  rating: 99,
-  scoresCount: 99,
-  describe: `Some description`,
-  director: `Director`,
-  actors: [`Actor`, `Actor`],
-  isFavorite: false,
-};
 
 it(`Render MovieCard`, () => {
   const store = mockStore({
     [NameSpace.DATA]: {
-      promoFilm: promoFilmData,
+      promoFilm: mockData.promoFilmData,
     },
     [NameSpace.USER]: AuthorizationStatus.NO_AUTH,
   });

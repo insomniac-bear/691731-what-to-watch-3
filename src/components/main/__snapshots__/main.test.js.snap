@@ -9,8 +9,8 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="The Grand Budapest Hotel"
-        src="img/bg-the-grand-budapest-hotel.jpg"
+        alt="Some name"
+        src="http://sume.url"
       />
     </div>
     <h1
@@ -47,16 +47,12 @@ Array [
       <div
         className="user-block"
       >
-        <div
-          className="user-block__avatar"
+        <a
+          className="user-block__link"
+          href="sign-in.html"
         >
-          <img
-            alt="User avatar"
-            height="63"
-            src="img/avatar.jpg"
-            width="63"
-          />
-        </div>
+          Sign in
+        </a>
       </div>
     </header>
     <div
@@ -69,9 +65,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Some name"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="Some url"
             width="218"
           />
         </div>
@@ -81,7 +77,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Film Name
+            Some name
           </h2>
           <p
             className="movie-card__meta"
@@ -89,12 +85,12 @@ Array [
             <span
               className="movie-card__genre"
             >
-              Film Genre
+              Some genre
             </span>
             <span
               className="movie-card__year"
             >
-              1995
+              1999
             </span>
           </p>
           <div
@@ -154,69 +150,25 @@ Array [
         className="catalog__genres-list"
       >
         <li
-          className="catalog__genres-item"
+          className="catalog__genres-item catalog__genres-item--active"
         >
           <a
             className="catalog__genres-link"
-            href="{genre}"
+            href="All genres"
             onClick={[Function]}
           >
             All genres
           </a>
         </li>
         <li
-          className="catalog__genres-item catalog__genres-item--active"
-        >
-          <a
-            className="catalog__genres-link"
-            href="{genre}"
-            onClick={[Function]}
-          >
-            genre-0
-          </a>
-        </li>
-        <li
           className="catalog__genres-item"
         >
           <a
             className="catalog__genres-link"
-            href="{genre}"
+            href="Some genre"
             onClick={[Function]}
           >
-            genre-1
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="{genre}"
-            onClick={[Function]}
-          >
-            genre-2
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="{genre}"
-            onClick={[Function]}
-          >
-            genre-3
-          </a>
-        </li>
-        <li
-          className="catalog__genres-item"
-        >
-          <a
-            className="catalog__genres-link"
-            href="{genre}"
-            onClick={[Function]}
-          >
-            genre-4
+            Some genre
           </a>
         </li>
       </ul>
@@ -234,8 +186,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/ Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -247,7 +199,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-0
+              Some name
             </a>
           </h3>
         </article>
@@ -262,8 +214,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/ Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -275,7 +227,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-1
+              Some name
             </a>
           </h3>
         </article>
@@ -290,8 +242,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/ Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -303,7 +255,7 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-2
+              Some name
             </a>
           </h3>
         </article>
@@ -318,8 +270,8 @@ Array [
           >
             <video
               height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/ Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              poster="Some url"
+              src="Some url"
               width="280"
             />
           </div>
@@ -331,38 +283,21 @@ Array [
               href="movie-page.html"
               onClick={[Function]}
             >
-              Name-3
+              Some name
             </a>
           </h3>
         </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
+      </div>
+      <div
+        className="catalog__more"
+      >
+        <button
+          className="catalog__button"
+          onClick={[MockFunction]}
+          type="button"
         >
-          <div
-            className="small-movie-card__image"
-          >
-            <video
-              height="175"
-              poster="img/bohemian-rhapsody.jpg"
-              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/ Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-              onClick={[Function]}
-            >
-              Name-4
-            </a>
-          </h3>
-        </article>
+          Show more
+        </button>
       </div>
     </section>
     <footer
