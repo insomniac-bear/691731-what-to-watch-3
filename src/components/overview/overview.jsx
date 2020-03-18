@@ -30,7 +30,7 @@ const Overview = (props) => {
     <div className="movie-card__text">
       <p>{filmData.describe}</p>
       <p className="movie-card__director"><strong>Director: {filmData.director}</strong></p>
-      <p className="movie-card__starring"><strong>Starring: {filmData.actors}</strong></p>
+      <p className="movie-card__starring"><strong>Starring: {filmData.actors.join(` `)}</strong></p>
     </div>
   </React.Fragment>;
 };
@@ -40,7 +40,7 @@ Overview.propTypes = {
     rating: PropTypes.number.isRequired,
     describe: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
-    actors: PropTypes.string.isRequired,
+    actors: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
 

@@ -2,33 +2,28 @@ import React, {PureComponent} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer.js';
+import {ActionCreator} from '../../reducer/genre/genre.js';
+import {getFilmId, getShowedFilmsCount} from '../../reducer/genre/selectors.js';
+import {getFilmsByGenre} from '../../reducer/data/selectors.js';
+import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
 
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
+import AuthPage from '../auth-page/auth-page.jsx';
 
 class App extends PureComponent {
   _renderMain() {
     const {
-      promoFilmData,
-      allFilms,
       currentFilms,
       filmId,
-      selectedGenre,
-      updateFilmId,
-      onChangeGenre,
       showedFilmsCount,
-      onChangeShowedFilmsCount
+      onChangeShowedFilmsCount,
     } = this.props;
 
     if (filmId < 0) {
       return (
         <Main
-          promoFilmData={promoFilmData}
           films={currentFilms.slice(0, showedFilmsCount)}
-          selectedGenre={selectedGenre}
-          cardClickHandler={updateFilmId}
-          onChangeGenre={onChangeGenre}
           showedFilmsCount={showedFilmsCount}
           currentFilmsCount={currentFilms.length}
           onChangeShowedFilmsCount={onChangeShowedFilmsCount}
@@ -37,9 +32,8 @@ class App extends PureComponent {
     } else {
       return (
         <MoviePage
-          filmData={allFilms[filmId]}
+          filmData={currentFilms.find((film) => film.id === filmId)}
           films={currentFilms.slice(0, showedFilmsCount)}
-          cardClickHandler={updateFilmId}
         />
       );
     }
@@ -54,6 +48,11 @@ class App extends PureComponent {
           </Route>
           <Route exact path="/dev-movie-page">
           </Route>
+          <Route exact path="/dev-auth">
+            <AuthPage
+              onSubmit={() => {}}
+            />
+          </Route>
         </Switch>
       </BrowserRouter>
     );
@@ -61,11 +60,6 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
-  promoFilmData: PropTypes.shape({
-    filmName: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.number.isRequired,
-  }).isRequired,
   currentFilms: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.isRequired,
     filmName: PropTypes.string,
@@ -77,33 +71,21 @@ App.propTypes = {
     rating: PropTypes.number,
     describe: PropTypes.string,
     director: PropTypes.string,
-    actors: PropTypes.string,
-    comments: PropTypes.array,
+    actors: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   filmId: PropTypes.number.isRequired,
-  allFilms: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   showedFilmsCount: PropTypes.number.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  updateFilmId: PropTypes.func.isRequired,
-  onChangeGenre: PropTypes.func.isRequired,
   onChangeShowedFilmsCount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  selectedGenre: state.selectedGenre,
-  allFilms: state.allFilms,
-  currentFilms: state.currentFilms,
-  filmId: state.filmId,
-  showedFilmsCount: state.showedFilmsCount,
+  currentFilms: getFilmsByGenre(state),
+  filmId: getFilmId(state),
+  showedFilmsCount: getShowedFilmsCount(state),
+  authorizationStatus: getAuthorizationStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateFilmId(id) {
-    dispatch(ActionCreator.updateFilmId(id));
-  },
-  onChangeGenre(genre) {
-    dispatch(ActionCreator.onChangeGenre(genre));
-  },
   onChangeShowedFilmsCount() {
     dispatch(ActionCreator.onChangeShowedFilmsCount());
   },

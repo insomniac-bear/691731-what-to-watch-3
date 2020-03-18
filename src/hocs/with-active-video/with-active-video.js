@@ -19,14 +19,13 @@ const withActiveVideo = (Component) => {
     }
 
     _onHover() {
-      this.timerId = clearTimeout();
       this.timerId = setTimeout(() => {
         this.setState({isPlaying: true});
       }, 1000);
     }
 
     _onMouseOut() {
-      this.timerId = clearTimeout();
+      clearTimeout(this.timerId);
       this.setState({isPlaying: false});
     }
 
@@ -50,10 +49,10 @@ const withActiveVideo = (Component) => {
     }
 
     componentWillUnmount() {
+      clearTimeout(this.timerId);
       this._onHover = null;
       this._onMouseOut = null;
       this._renderVideoPreview = null;
-      this.timerId = clearTimeout();
     }
   }
 

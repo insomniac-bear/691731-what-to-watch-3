@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import MoviesList from '../movies-list/movies-list.jsx';
 import Tabs from '../tabs/tabs.jsx';
+import PageFooter from '../page-footer/page-footer.jsx';
 import PageHeader from '../page-header/page-header.jsx';
 
 import withActiveTab from '../../hocs/with-active-tab/with-active-tab.js';
@@ -10,13 +11,15 @@ import withActiveTab from '../../hocs/with-active-tab/with-active-tab.js';
 const TabsWrapped = withActiveTab(Tabs);
 
 const MoviePage = (props) => {
-  const {filmData, films, cardClickHandler} = props;
+  const {
+    filmData,
+  } = props;
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section className="movie-card movie-card--full" style={{background: filmData.backgroundColor}}>
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={filmData.posterImage} alt={filmData.filmName} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -53,10 +56,12 @@ const MoviePage = (props) => {
         <div className="movie-card__wrap  movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster  movie-card__poster--big">
-              <img src={filmData.posterUrl} alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={filmData.backgroundImage} alt={filmData.filmName} width="218" height="327" />
             </div>
 
-            <TabsWrapped filmData={filmData}/>
+            <TabsWrapped
+              filmData={filmData}
+            />
 
           </div>
         </div>
@@ -65,26 +70,10 @@ const MoviePage = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesList
-            films={films}
-            cardClickHandler={cardClickHandler}
-          />
+          <MoviesList />
         </section>
 
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link   logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <PageFooter />
       </div>
     </React.Fragment>
   );
@@ -92,8 +81,6 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   filmData: PropTypes.shape().isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  cardClickHandler: PropTypes.func.isRequired,
 };
 
 export default MoviePage;

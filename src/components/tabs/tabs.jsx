@@ -14,7 +14,7 @@ const renderTabContent = (activeTab, data) => {
     case `Details`:
       return <Details filmData={data}/>;
     case `Reviews`:
-      return <Reviews comments={data.comments} />;
+      return <Reviews />;
     default:
       break;
   }
@@ -23,7 +23,12 @@ const renderTabContent = (activeTab, data) => {
 
 
 const Tabs = (props) => {
-  const {activeTab, filmData, renderTab} = props;
+  const {
+    activeTab,
+    filmData,
+    renderTab
+  } = props;
+
   return <React.Fragment>
     <div className="movie-card__desc">
       <nav className="movie-nav movie-card__nav">
@@ -42,8 +47,8 @@ const Tabs = (props) => {
 
 
 Tabs.propTypes = {
-  filmData: PropTypes.shape().isRequired,
   activeTab: PropTypes.string.isRequired,
+  filmData: PropTypes.shape().isRequired,
   renderTab: PropTypes.func.isRequired,
 };
 

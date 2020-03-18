@@ -6,8 +6,9 @@ const SmallMovieCard = (props) => {
     filmData,
     onHover,
     onMouseOut,
-    onCardClickHandler,
-    renderVideoPreview
+    renderVideoPreview,
+    loadComments,
+    updateFilmId,
   } = props;
 
   return (
@@ -15,16 +16,20 @@ const SmallMovieCard = (props) => {
       className="small-movie-card catalog__movies-card"
       onMouseEnter={() => onHover()}
       onMouseLeave={() => onMouseOut()}
-      onClick={() => onCardClickHandler(filmData.id)}
+      onClick={() => {
+        loadComments(filmData.id);
+        updateFilmId(filmData.id);
+      }}
     >
-      {renderVideoPreview(filmData.filmPreview, filmData.posterUrl)}
+      {renderVideoPreview(filmData.filmPreview, filmData.previewImage)}
       <h3 className="small-movie-card__title">
         <a
           className="small-movie-card__link"
           href="movie-page.html"
           onClick={(evt) => {
             evt.preventDefault();
-            onCardClickHandler(filmData.id);
+            loadComments(filmData.id);
+            updateFilmId(filmData.id);
           }}
         >
           {filmData.filmName}
@@ -38,13 +43,14 @@ SmallMovieCard.propTypes = {
   filmData: PropTypes.shape({
     id: PropTypes.number.isRequired,
     filmName: PropTypes.string.isRequired,
-    posterUrl: PropTypes.string.isRequired,
+    previewImage: PropTypes.string.isRequired,
     filmPreview: PropTypes.string.isRequired,
   }).isRequired,
+  loadComments: PropTypes.func.isRequired,
   onHover: PropTypes.func.isRequired,
   onMouseOut: PropTypes.func.isRequired,
-  onCardClickHandler: PropTypes.func.isRequired,
   renderVideoPreview: PropTypes.func.isRequired,
+  updateFilmId: PropTypes.func.isRequired,
 };
 
 export default SmallMovieCard;

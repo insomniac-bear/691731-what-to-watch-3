@@ -5,47 +5,25 @@ exports[`Render list of Genres 1`] = `
   className="catalog__genres-list"
 >
   <li
-    className="catalog__genres-item"
+    className="catalog__genres-item catalog__genres-item--active"
   >
     <a
       className="catalog__genres-link"
-      href="{genre}"
+      href="All genres"
       onClick={[Function]}
     >
       All genres
     </a>
   </li>
   <li
-    className="catalog__genres-item catalog__genres-item--active"
-  >
-    <a
-      className="catalog__genres-link"
-      href="{genre}"
-      onClick={[Function]}
-    >
-      genre-0
-    </a>
-  </li>
-  <li
     className="catalog__genres-item"
   >
     <a
       className="catalog__genres-link"
-      href="{genre}"
+      href="Some genre"
       onClick={[Function]}
     >
-      genre-1
-    </a>
-  </li>
-  <li
-    className="catalog__genres-item"
-  >
-    <a
-      className="catalog__genres-link"
-      href="{genre}"
-      onClick={[Function]}
-    >
-      genre-2
+      Some genre
     </a>
   </li>
 </ul>

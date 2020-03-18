@@ -1,7 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-const PageHeader = () => {
-  return <React.Fragment>
+import AuthorizedUserblock from '../authorized-user-block/authorized-user-block.jsx';
+import NoAuthorizedUserBlock from '../no-authorized-user-block/no-authorized-user-block.jsx';
+import {display} from '../../utils.js';
+import {AuthorizationStatus} from '../../const.js';
+import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
+
+const PageHeader = (props) => {
+  const {authorizationStatus} = props;
+
+  return (
     <header className="page-header movie-card__head">
       <div className="logo">
         <a className="logo__link">
@@ -11,13 +21,26 @@ const PageHeader = () => {
         </a>
       </div>
 
-      <div className="user-block">
-        <div className="user-block__avatar">
-          <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-        </div>
-      </div>
+      {
+        display(
+            {
+              isVisible: authorizationStatus === AuthorizationStatus.AUTH,
+              childrenTrue: <AuthorizedUserblock/>,
+              childrenFalse: <NoAuthorizedUserBlock/>,
+            }
+        )
+      }
     </header>
-  </React.Fragment>;
+  );
 };
 
-export default PageHeader;
+PageHeader.propTypes = {
+  authorizationStatus: PropTypes.string,
+};
+
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthorizationStatus(state),
+});
+
+export {PageHeader};
+export default connect(mapStateToProps)(PageHeader);

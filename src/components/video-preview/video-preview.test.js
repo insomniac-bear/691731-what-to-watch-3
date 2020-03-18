@@ -3,9 +3,22 @@ import renderer from 'react-test-renderer';
 import VideoPreview from './video-preview.jsx';
 
 const mockFilmData = {
-  id: 0,
-  posterUrl: `img/bohemian-rhapsody.jpg`,
-  filmPreview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+  filmName: `Some name`,
+  posterImage: `Some url`,
+  previewImage: `Some url`,
+  backgroundImage: `Some url`,
+  backgroundColor: `#000000`,
+  filmSrc: `Some url`,
+  filmPreview: `Some url`,
+  genre: `Some genre`,
+  release: 1999,
+  runtime: 99,
+  rating: 99,
+  scoresCount: 99,
+  describe: `Some description`,
+  director: `Director`,
+  actors: [`Actor`, `Actor`],
+  isFavorite: false,
   isPlaying: true,
 };
 

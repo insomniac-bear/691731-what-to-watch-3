@@ -15,7 +15,7 @@ exports[`Render SmallMovieCard 1`] = `
       href="movie-page.html"
       onClick={[Function]}
     >
-      Name
+      Some name
     </a>
   </h3>
 </article>
