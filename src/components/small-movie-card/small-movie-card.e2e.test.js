@@ -35,6 +35,7 @@ it(`Hover on small card film should pass to the callback data-object from film w
   const onMouseOutHandler = jest.fn();
   const loadComments = jest.fn();
   const updateFilmId = jest.fn();
+  const activePageHandle = jest.fn();
 
   const smallMovieCardWrapper = mount(
       <SmallMovieCard
@@ -43,6 +44,7 @@ it(`Hover on small card film should pass to the callback data-object from film w
         onMouseOut={onMouseOutHandler}
         loadComments={loadComments}
         updateFilmId={updateFilmId}
+        activePageHandle={activePageHandle}
         renderVideoPreview={() => {}}
       />
   );

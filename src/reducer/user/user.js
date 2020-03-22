@@ -41,11 +41,14 @@ const Operation = {
 
   login: (authData) => (dispatch, getState, api) => {
     return api.post(`/login`, {
-      email: authData.login,
+      email: authData.email,
       password: authData.password,
     })
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+      })
+      .catch((err) => {
+        throw err;
       });
   },
 };

@@ -4,7 +4,11 @@ import NoAuthorizedUserBlock from './no-authorized-user-block.jsx';
 
 it(`Render NoAuthorizedUserBlock`, () => {
   const tree = renderer
-    .create(<NoAuthorizedUserBlock/>)
+    .create(
+        <NoAuthorizedUserBlock
+          activePageHandle={jest.fn()}
+        />
+    )
     .toJSON();
 
   expect(tree).toMatchSnapshot();

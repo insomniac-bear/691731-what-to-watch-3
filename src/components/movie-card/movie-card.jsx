@@ -6,7 +6,7 @@ import PageHeader from '../page-header/page-header.jsx';
 import {getPromoFilm} from '../../reducer/data/selectors.js';
 
 const MovieCard = (props) => {
-  const {promoFilm} = props;
+  const {promoFilm, activePageHandle} = props;
 
   return <React.Fragment>
     <section className="movie-card">
@@ -16,7 +16,7 @@ const MovieCard = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <PageHeader />
+      <PageHeader activePageHandle={activePageHandle}/>
 
       <div className="movie-card__wrap">
         <div className="movie-card__info">
@@ -54,6 +54,7 @@ const MovieCard = (props) => {
 
 MovieCard.propTypes = {
   promoFilm: PropTypes.shape().isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

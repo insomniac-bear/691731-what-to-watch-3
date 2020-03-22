@@ -25,6 +25,7 @@ it(`Render MovieList`, () => {
             currentFilms={jest.fn()}
             loadComments={jest.fn()}
             updateFilmId={jest.fn()}
+            activePageHandle={jest.fn()}
           />
         </Provider>, {
           createNodeMock: () => {

@@ -28,7 +28,7 @@ it(`Render MoviePage`, () => {
         <Provider store={store}>
           <MoviePage
             filmData={mockData.films[0]}
-            films={()=>{}}
+            activePageHandle={jest.fn()}
           />
         </Provider>, {
           createNodeMock: () => {

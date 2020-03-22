@@ -15,10 +15,11 @@ it(`Render App`, ()=> {
       selectedGenre: mockData.selectedGenre,
       filmId: mockData.filmId,
       showedFilmsCount: mockData.showedFilmsCount,
+      activePage: `MAIN`,
     },
     [NameSpace.DATA]: {
       allFilms: mockData.films,
-      promoFilmData: mockData.promoFilmData,
+      promoFilm: mockData.promoFilmData,
     },
     [NameSpace.USER]: {
       authorizationStatus: AuthorizationStatus.NO_AUTH,

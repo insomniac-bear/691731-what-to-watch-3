@@ -19,6 +19,7 @@ it(`Render Main`, () => {
     },
     [NameSpace.GENRE]: {
       selectedGenre: mockData.selectedGenre,
+      showedFilmsCount: mockData.showedFilmsCount,
     },
     [NameSpace.USER]: AuthorizationStatus.NO_AUTH,
   });
@@ -29,6 +30,7 @@ it(`Render Main`, () => {
             currentFilmsCount={4}
             onChangeShowedFilmsCount={jest.fn()}
             showedFilmsCount={2}
+            activePageHandle={jest.fn()}
           />
         </Provider>, {
           createNodeMock: () => {

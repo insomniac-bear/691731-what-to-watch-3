@@ -9,7 +9,7 @@ import {AuthorizationStatus} from '../../const.js';
 import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
 
 const PageHeader = (props) => {
-  const {authorizationStatus} = props;
+  const {authorizationStatus, activePageHandle} = props;
 
   return (
     <header className="page-header movie-card__head">
@@ -25,8 +25,8 @@ const PageHeader = (props) => {
         display(
             {
               isVisible: authorizationStatus === AuthorizationStatus.AUTH,
-              childrenTrue: <AuthorizedUserblock/>,
-              childrenFalse: <NoAuthorizedUserBlock/>,
+              childrenTrue: <AuthorizedUserblock />,
+              childrenFalse: <NoAuthorizedUserBlock activePageHandle={activePageHandle}/>,
             }
         )
       }
@@ -36,6 +36,7 @@ const PageHeader = (props) => {
 
 PageHeader.propTypes = {
   authorizationStatus: PropTypes.string,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

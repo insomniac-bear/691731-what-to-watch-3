@@ -13,6 +13,7 @@ const TabsWrapped = withActiveTab(Tabs);
 const MoviePage = (props) => {
   const {
     filmData,
+    activePageHandle,
   } = props;
   return (
     <React.Fragment>
@@ -24,7 +25,9 @@ const MoviePage = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <PageHeader />
+          <PageHeader
+            activePageHandle={activePageHandle}
+          />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -70,7 +73,9 @@ const MoviePage = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesList />
+          <MoviesList
+            activePageHandle={activePageHandle}
+          />
         </section>
 
         <PageFooter />
@@ -81,6 +86,7 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   filmData: PropTypes.shape().isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 export default MoviePage;

@@ -15,7 +15,9 @@ it(`Render page header`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <PageHeader />
+          <PageHeader
+            activePageHandle={jest.fn()}
+          />
         </Provider>, {
           createNodeMock: () => {
             return {};
