@@ -5,6 +5,7 @@ const ActivePage = {
   MAIN: `MAIN`,
   FILM_PAGE: `FILM_PAGE`,
   AUTH_PAGE: `AUTH_PAGE`,
+  PLAYER: `PLAYER`,
 };
 
 const initialState = {
