@@ -5,6 +5,7 @@ import MoviesList from '../movies-list/movies-list.jsx';
 import Tabs from '../tabs/tabs.jsx';
 import PageFooter from '../page-footer/page-footer.jsx';
 import PageHeader from '../page-header/page-header.jsx';
+import MovieCardButtons from '../movie-card-buttons/movie-card-buttons.jsx';
 
 import withActiveTab from '../../hocs/with-active-tab/with-active-tab.js';
 
@@ -13,6 +14,7 @@ const TabsWrapped = withActiveTab(Tabs);
 const MoviePage = (props) => {
   const {
     filmData,
+    activePageHandle,
   } = props;
   return (
     <React.Fragment>
@@ -24,7 +26,9 @@ const MoviePage = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <PageHeader />
+          <PageHeader
+            activePageHandle={activePageHandle}
+          />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -34,21 +38,11 @@ const MoviePage = (props) => {
                 <span className="movie-card__year">{filmData.release}</span>
               </p>
 
-              <div className="movie-card__buttons">
-                <button className="btn btn--play  movie-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list  movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn  movie-card__button">Add review</a>
-              </div>
+              <MovieCardButtons
+                filmData={filmData}
+                activePageHandle={activePageHandle}
+                isReview={true}
+              />
             </div>
           </div>
         </div>
@@ -70,7 +64,9 @@ const MoviePage = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-          <MoviesList />
+          <MoviesList
+            activePageHandle={activePageHandle}
+          />
         </section>
 
         <PageFooter />
@@ -81,6 +77,7 @@ const MoviePage = (props) => {
 
 MoviePage.propTypes = {
   filmData: PropTypes.shape().isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 export default MoviePage;

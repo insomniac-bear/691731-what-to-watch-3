@@ -1,12 +1,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import NoAuthorizedUserBlock from './no-authorized-user-block.jsx';
 
-it(`Render NoAuthorizedUserBlock`, () => {
+import MovieCardButtons from './movie-card-buttons.jsx';
+
+it(`Render MovieCardButtons`, () => {
   const tree = renderer
     .create(
-        <NoAuthorizedUserBlock
+        <MovieCardButtons
           activePageHandle={jest.fn()}
+          isReview={true}
         />
     )
     .toJSON();

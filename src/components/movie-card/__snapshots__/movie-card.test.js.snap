@@ -49,6 +49,7 @@ exports[`Render MovieCard 1`] = `
       <a
         className="user-block__link"
         href="sign-in.html"
+        onClick={[Function]}
       >
         Sign in
       </a>
@@ -96,7 +97,8 @@ exports[`Render MovieCard 1`] = `
           className="movie-card__buttons"
         >
           <button
-            className="btn btn--play movie-card__button"
+            className="btn btn--play  movie-card__button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -113,7 +115,7 @@ exports[`Render MovieCard 1`] = `
             </span>
           </button>
           <button
-            className="btn btn--list movie-card__button"
+            className="btn btn--list  movie-card__button"
             type="button"
           >
             <svg

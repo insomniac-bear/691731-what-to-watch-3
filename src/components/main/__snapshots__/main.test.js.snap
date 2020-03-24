@@ -50,6 +50,7 @@ Array [
         <a
           className="user-block__link"
           href="sign-in.html"
+          onClick={[Function]}
         >
           Sign in
         </a>
@@ -97,7 +98,8 @@ Array [
             className="movie-card__buttons"
           >
             <button
-              className="btn btn--play movie-card__button"
+              className="btn btn--play  movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
@@ -114,7 +116,7 @@ Array [
               </span>
             </button>
             <button
-              className="btn btn--list movie-card__button"
+              className="btn btn--list  movie-card__button"
               type="button"
             >
               <svg

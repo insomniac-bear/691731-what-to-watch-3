@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PageHeader from '../page-header/page-header.jsx';
+import MovieCardButtons from '../movie-card-buttons/movie-card-buttons.jsx';
 import {getPromoFilm} from '../../reducer/data/selectors.js';
 
 const MovieCard = (props) => {
-  const {promoFilm} = props;
+  const {promoFilm, activePageHandle} = props;
 
   return <React.Fragment>
     <section className="movie-card">
@@ -16,7 +17,7 @@ const MovieCard = (props) => {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <PageHeader />
+      <PageHeader activePageHandle={activePageHandle}/>
 
       <div className="movie-card__wrap">
         <div className="movie-card__info">
@@ -31,20 +32,10 @@ const MovieCard = (props) => {
               <span className="movie-card__year">{promoFilm.release}</span>
             </p>
 
-            <div className="movie-card__buttons">
-              <button className="btn btn--play movie-card__button" type="button">
-                <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHref="#play-s"></use>
-                </svg>
-                <span>Play</span>
-              </button>
-              <button className="btn btn--list movie-card__button" type="button">
-                <svg viewBox="0 0 19 20" width="19" height="20">
-                  <use xlinkHref="#add"></use>
-                </svg>
-                <span>My list</span>
-              </button>
-            </div>
+            <MovieCardButtons
+              activePageHandle={activePageHandle}
+              isReview={false}
+            />
           </div>
         </div>
       </div>
@@ -54,6 +45,7 @@ const MovieCard = (props) => {
 
 MovieCard.propTypes = {
   promoFilm: PropTypes.shape().isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

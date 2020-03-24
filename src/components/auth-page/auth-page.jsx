@@ -1,5 +1,9 @@
 import React, {PureComponent, createRef} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {Operation as UserOperation} from '../../reducer/user/user.js';
+import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
+import {ActivePage} from '../../reducer/genre/genre.js';
 
 class AuthPage extends PureComponent {
   constructor(props) {
@@ -12,14 +16,15 @@ class AuthPage extends PureComponent {
   }
 
   handleSubmit(evt) {
-    const {onSubmit} = this.props;
+    const {login, activePageHandle} = this.props;
 
     evt.preventDefault();
 
-    onSubmit({
+    login({
       email: this.emailRef.current.value,
       password: this.passwordRef.current.value,
     });
+    activePageHandle(ActivePage.MAIN);
   }
 
   render() {
@@ -66,7 +71,12 @@ class AuthPage extends PureComponent {
               </div>
             </div>
             <div className="sign-in__submit">
-              <button className="sign-in__btn" type="submit">Sign in</button>
+              <button
+                className="sign-in__btn"
+                type="submit"
+              >
+                Sign in
+              </button>
             </div>
           </form>
         </div>
@@ -89,8 +99,20 @@ class AuthPage extends PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthorizationStatus(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  login(authData) {
+    dispatch(UserOperation.login(authData));
+  },
+});
+
 AuthPage.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
-export default AuthPage;
+export {AuthPage};
+export default connect(mapStateToProps, mapDispatchToProps)(AuthPage);

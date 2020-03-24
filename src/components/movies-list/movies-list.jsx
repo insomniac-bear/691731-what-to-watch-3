@@ -19,6 +19,7 @@ const MoviesList = (props) => {
     showedFilmsCount,
     loadComments,
     updateFilmId,
+    activePageHandle,
   } = props;
 
   return (
@@ -29,6 +30,7 @@ const MoviesList = (props) => {
             filmData={filmData}
             loadComments={loadComments}
             updateFilmId={updateFilmId}
+            activePageHandle={activePageHandle}
           />)
       }
     </div>
@@ -44,6 +46,7 @@ MoviesList.propTypes = {
   showedFilmsCount: PropTypes.number.isRequired,
   loadComments: PropTypes.func.isRequired,
   updateFilmId: PropTypes.func.isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

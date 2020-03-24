@@ -13,3 +13,7 @@ export const getFilmId = (state) => {
 export const getShowedFilmsCount = (state) => {
   return state[NAME_SPACE].showedFilmsCount;
 };
+
+export const getActivePage = (state) => {
+  return state[NameSpace.GENRE].activePage;
+};

@@ -19,7 +19,9 @@ it(`Render MovieCard`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <MovieCard />
+          <MovieCard
+            activePageHandle={jest.fn()}
+          />
         </Provider>, {
           createNodeMock: () => {
             return {};

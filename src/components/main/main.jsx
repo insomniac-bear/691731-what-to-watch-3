@@ -14,15 +14,18 @@ const Main = (props) => {
     currentFilmsCount,
     showedFilmsCount,
     onChangeShowedFilmsCount,
+    activePageHandle,
   } = props;
 
   return <React.Fragment>
-    <MovieCard />
+    <MovieCard activePageHandle={activePageHandle}/>
     <div className="page-content">
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
         <GenresList />
-        <MoviesList />
+        <MoviesList
+          activePageHandle={activePageHandle}
+        />
 
         {
           display(
@@ -43,6 +46,7 @@ Main.propTypes = {
   showedFilmsCount: PropTypes.number.isRequired,
   currentFilmsCount: PropTypes.number.isRequired,
   onChangeShowedFilmsCount: PropTypes.func.isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 export default Main;

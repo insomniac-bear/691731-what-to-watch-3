@@ -2,14 +2,15 @@ import React, {PureComponent} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/genre/genre.js';
-import {getFilmId, getShowedFilmsCount} from '../../reducer/genre/selectors.js';
-import {getFilmsByGenre} from '../../reducer/data/selectors.js';
+import {ActionCreator, ActivePage} from '../../reducer/genre/genre.js';
+import {getFilmId, getShowedFilmsCount, getActivePage} from '../../reducer/genre/selectors.js';
+import {getFilmsByGenre, getAllFilms, getPromoFilm} from '../../reducer/data/selectors.js';
 import {getAuthorizationStatus} from '../../reducer/user/selectors.js';
 
 import Main from '../main/main.jsx';
 import MoviePage from '../movie-page/movie-page.jsx';
 import AuthPage from '../auth-page/auth-page.jsx';
+import Player from '../player/player.jsx';
 
 class App extends PureComponent {
   _renderMain() {
@@ -18,25 +19,46 @@ class App extends PureComponent {
       filmId,
       showedFilmsCount,
       onChangeShowedFilmsCount,
+      activePage,
+      activePageHandle,
+      promoFilm,
+      allFilms,
     } = this.props;
 
-    if (filmId < 0) {
+    const filmDataForPlayer = (filmId > -1) ? allFilms[filmId] : promoFilm;
+
+    if (activePage === ActivePage.AUTH_PAGE) {
+      return (
+        <AuthPage
+          activePageHandle={activePageHandle}
+        />
+      );
+    } else if (activePage === ActivePage.MAIN) {
       return (
         <Main
           films={currentFilms.slice(0, showedFilmsCount)}
           showedFilmsCount={showedFilmsCount}
           currentFilmsCount={currentFilms.length}
           onChangeShowedFilmsCount={onChangeShowedFilmsCount}
+          activePageHandle={activePageHandle}
         />
       );
-    } else {
+    } else if (activePage === ActivePage.PLAYER) {
       return (
-        <MoviePage
-          filmData={currentFilms.find((film) => film.id === filmId)}
-          films={currentFilms.slice(0, showedFilmsCount)}
+        <Player
+          filmData={filmDataForPlayer}
+          activePageHandle={activePageHandle}
         />
       );
     }
+
+    return (
+      <MoviePage
+        filmData={currentFilms.find((film) => film.id === filmId)}
+        films={currentFilms.slice(0, showedFilmsCount)}
+        activePageHandle={activePageHandle}
+      />
+    );
   }
 
   render() {
@@ -49,9 +71,6 @@ class App extends PureComponent {
           <Route exact path="/dev-movie-page">
           </Route>
           <Route exact path="/dev-auth">
-            <AuthPage
-              onSubmit={() => {}}
-            />
           </Route>
         </Switch>
       </BrowserRouter>
@@ -60,6 +79,8 @@ class App extends PureComponent {
 }
 
 App.propTypes = {
+  activePage: PropTypes.string.isRequired,
+  allFilms: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   currentFilms: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.isRequired,
     filmName: PropTypes.string,
@@ -74,20 +95,28 @@ App.propTypes = {
     actors: PropTypes.arrayOf(PropTypes.string),
   })).isRequired,
   filmId: PropTypes.number.isRequired,
+  promoFilm: PropTypes.shape().isRequired,
   showedFilmsCount: PropTypes.number.isRequired,
   onChangeShowedFilmsCount: PropTypes.func.isRequired,
+  activePageHandle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  activePage: getActivePage(state),
+  allFilms: getAllFilms(state),
+  authorizationStatus: getAuthorizationStatus(state),
   currentFilms: getFilmsByGenre(state),
   filmId: getFilmId(state),
+  promoFilm: getPromoFilm(state),
   showedFilmsCount: getShowedFilmsCount(state),
-  authorizationStatus: getAuthorizationStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeShowedFilmsCount() {
     dispatch(ActionCreator.onChangeShowedFilmsCount());
+  },
+  activePageHandle(activePage) {
+    dispatch(ActionCreator.activePageHandle(activePage));
   },
 });
 
